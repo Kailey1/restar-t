@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "514229270428",
+    "firebase_url": "https://restart-64630.firebaseio.com",
+    "project_id": "restart-64630",
+    "storage_bucket": "restart-64630.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514229270428:android:fa320ca0e5d09d01753a59",
+        "android_client_info": {
+          "package_name": "cooldudes.restart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514229270428-0h8cqnjqbie5uq2i1r45fjdalmd24nr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cooldudes.restart",
+            "certificate_hash": "6f36d3e5f6a834b4650bfd31f1d4ab89cf2fd638"
+          }
+        },
+        {
+          "client_id": "514229270428-5gftgn075cmc3f2mbvm98s3sn7np5384.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeBi_aob5HjEFvVeRGgGE-VH9y8uxL9Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514229270428-5gftgn075cmc3f2mbvm98s3sn7np5384.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
