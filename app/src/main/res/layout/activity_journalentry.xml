@@ -83,23 +83,24 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/alien_1"
                     style="@style/mood"
                     android:src="@drawable/horrible"/>
                 <ImageView
+                    android:id="@+id/alien_2"
                     style="@style/mood"
-
                     android:src="@drawable/sad"/>
                 <ImageView
+                    android:id="@+id/alien_3"
                     style="@style/mood"
-
                     android:src="@drawable/meh"/>
                 <ImageView
+                    android:id="@+id/alien_4"
                     style="@style/mood"
-
                     android:src="@drawable/happy"/>
                 <ImageView
+                    android:id="@+id/alien_5"
                     style="@style/mood"
-
                     android:src="@drawable/wohoo"/>
             </LinearLayout>
             <TextView

@@ -51,6 +51,9 @@ public class DashboardFragment extends Fragment {
                 AppUser u = dataSnapshot.getValue(AppUser.class);
 
                 streakTV.setText(findDiff(u.getStreakStart(), new Date().getTime()) + " days");
+                if (u.getDailyLimit()==0){
+                    goalTV.setText("stay sober!");
+                }
                 goalTV.setText(u.getDailyLimit() + " drinks");
 
             }
