@@ -69,7 +69,11 @@ public class OnboardingActivity extends AppCompatActivity {
                 if (standard > 20) {
                     appUser.setDailyLimit(16);
                 } else {
-                    appUser.setDailyLimit(standard-2);
+                    if (standard-2 < 0){
+                        appUser.setDailyLimit(0);
+                    } else {
+                        appUser.setDailyLimit(standard-2);
+                    }
                 }
 
                 // moves to next screen

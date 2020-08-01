@@ -60,7 +60,7 @@ public class JournalEntry extends AppCompatActivity {
         dateText.setText(strDate);
 
         long dayNum = (findDiff(entryTime, new Date().getTime())+1);
-        dayX.setText(dayNum+"");
+        dayX.setText("day " + dayNum + " your journey");
 
         // populates the views with what they already filled out previously
         fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).addValueEventListener(new ValueEventListener() {
