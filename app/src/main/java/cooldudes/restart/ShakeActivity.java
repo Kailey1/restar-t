@@ -1,5 +1,6 @@
 package cooldudes.restart;
 
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,18 +18,22 @@ import static cooldudes.restart.LoginActivity.user;
 
 public class ShakeActivity extends AppCompatActivity {
 
-    private TextView reason1TV, reason2TV, reason3TV;
+    private TextView reason1TV, reason2TV, reason3TV, counttime;
     private String reason1, reason2, reason3;
     private Button talkBTN, journalBTN;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
+
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMiliseconds = 300000; // 5 minutes
+    private boolean timerRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shake);
 
-
+        counttime = findViewById(R.id.counttime);
 
         reason1TV = findViewById(R.id.reason1);
         reason2TV = findViewById(R.id.reason2);
@@ -89,6 +94,47 @@ public class ShakeActivity extends AppCompatActivity {
             }
         });
 
+        Timer();
+
+    }
+    public void Timer() {
+        if (timerRunning){
+            stopTimer();
+        }
+        else {
+            startTimer();
+        }
+    }
+    public void  startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMiliseconds, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMiliseconds = l;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+    }
+    public void stopTimer() {
+        countDownTimer.cancel();
+        timerRunning = false;
     }
 
+    public void updateTimer() {
+        int minutes = (int) timeLeftInMiliseconds / 60000;
+        int seconds = (int) timeLeftInMiliseconds % 60000 /1000;
+
+        String timeLeftText;
+
+        timeLeftText = "" + minutes;
+        timeLeftText += ":";
+        if (seconds < 10) timeLeftText += "0";
+        timeLeftText += seconds;
+
+        counttime.setText(timeLeftText);
+    }
 }
