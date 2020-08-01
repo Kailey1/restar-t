@@ -21,6 +21,7 @@
         <activity android:name=".ServiceActivity" />
         <activity android:name=".AlcoholUseActivity" />
         <activity android:name=".ShakeActivity" />
+        <activity android:name=".JournalEntry" />
         <activity android:name=".OnboardingActivity3" />
         <activity android:name=".OnboardingActivity2" />
         <activity android:name=".OnboardingActivity" />

@@ -1,5 +1,7 @@
 package cooldudes.restart;
 
+import android.os.CountDownTimer;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,18 +19,36 @@ import static cooldudes.restart.LoginActivity.user;
 
 public class ShakeActivity extends AppCompatActivity {
 
-    private TextView reason1TV, reason2TV, reason3TV;
+    private TextView reason1TV, reason2TV, reason3TV, counttime;
     private String reason1, reason2, reason3;
     private Button talkBTN, journalBTN;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMiliseconds = 300000; // 5 minutes
+    private boolean timerRunning;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shake);
+        counttime = findViewById(R.id.counttime);
+        // sends an automated sms
+        fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
+                  @Override
+                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      String phone = dataSnapshot.getValue(String.class);
+                      String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
+                      MainActivity.sendText(msg, phone, ShakeActivity.this);
+                  }
 
+                  @Override
+                  public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                  }
+              }
+        );
 
         reason1TV = findViewById(R.id.reason1);
         reason2TV = findViewById(R.id.reason2);
@@ -85,10 +105,54 @@ public class ShakeActivity extends AppCompatActivity {
         journalBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // open journal entry
+                // opens journal entry for that day
+                Intent i = new Intent(ShakeActivity.this, JournalEntry.class);
+                i.putExtra("ENTRY_TIME", AlarmReceiver.getMidnight());
+                startActivity(i);
             }
         });
 
+        Timer();
+
+    }
+    public void Timer() {
+        if (timerRunning){
+            stopTimer();
+        }
+        else {
+            startTimer();
+        }
+    }
+    public void  startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMiliseconds, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMiliseconds = l;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+    }
+    public void stopTimer() {
+        countDownTimer.cancel();
+        timerRunning = false;
     }
 
+    public void updateTimer() {
+        int minutes = (int) timeLeftInMiliseconds / 60000;
+        int seconds = (int) timeLeftInMiliseconds % 60000 /1000;
+
+        String timeLeftText;
+
+        timeLeftText = "" + minutes;
+        timeLeftText += ":";
+        if (seconds < 10) timeLeftText += "0";
+        timeLeftText += seconds;
+
+        counttime.setText(timeLeftText);
+    }
 }

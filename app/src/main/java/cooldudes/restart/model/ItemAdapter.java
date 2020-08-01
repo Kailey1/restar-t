@@ -1,33 +1,22 @@
 package cooldudes.restart.model;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Member;
+import java.util.Date;
 import java.util.List;
 
 import cooldudes.restart.MainActivity;
 import cooldudes.restart.R;
 
-import cooldudes.restart.model.Entry;
+import static cooldudes.restart.model.AppUser.findDiff;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     private static final String TAG = ItemAdapter.class.getSimpleName();
@@ -77,8 +66,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         final Entry m = entryList.get(position);
-        holder.date.setText(String.valueOf(m.getDate()));
-        holder.journal.setText(m.getWritten());
+        String dateHeader = "DAY " + (findDiff(m.getTime(), new Date().getTime())+1) + " | " + new java.text.SimpleDateFormat("MM/dd/yyyy").format(m.getTime());
+        holder.date.setText(dateHeader);
+
+        holder.journal.setText(m.getTriggers());
         int[] aliens = new int[]{R.drawable.wohoo, R.drawable.happy, R.drawable.meh, R.drawable.sad, R.drawable.horrible};
         for (int i=0; i<5; i++) {
             if (m.getMood()==i) {
