@@ -1,5 +1,6 @@
 package cooldudes.restart;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -88,7 +89,14 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+        alienface.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent i = new Intent(getActivity(), ShakeActivity.class);
+                startActivity(i);
+            }
+        });
 
         ImageButton logoutBTN = v.findViewById(R.id.logout_button);
         logoutBTN.setOnClickListener(new View.OnClickListener() {
