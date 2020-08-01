@@ -3,14 +3,17 @@
 
     <item
         android:id="@+id/navigation_dashboard"
+        android:title="dashboard"
         android:icon="@drawable/dash"/>
 
     <item
         android:id="@+id/navigation_progress"
+        android:title="reflection"
         android:icon="@drawable/journal"/>
 
     <item
         android:id="@+id/navigation_resources"
+        android:title="resources"
         android:icon="@drawable/book"/>
 
 </menu>

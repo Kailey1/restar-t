@@ -37,13 +37,14 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="restar-t is best recommended to be used in conjunction with other services. Here are a selection of some services to help with addiction."
+                    android:layout_marginRight="20dp"
+                    android:text="Restar-t is recommended to be used in conjunction with other services. \n\nHere is a selection of some professional services to help with addiction."
                     android:textSize="45px"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
                     android:background="@color/darkblue"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,6 +69,7 @@
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
+
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_regular"
                         android:text="https://www.aa.org/"
@@ -77,15 +79,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/darkblue"
+
                     android:fontFamily="@font/dm_sans_regular"
                     android:text="Fellowship of men and women who share their experience, and hope with each other that they may solve their common problem and help others to recover from alcoholism."
                     android:textSize="45px"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
                     android:background="@color/darkblue" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -119,15 +122,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/darkblue"
+                    android:layout_marginRight="20dp"
                     android:fontFamily="@font/dm_sans_regular"
                     android:text="Not everyone who abuses substances is an adult. Kids Help Phone offers a 24 hr service geared specifically towards giving support to youth for substance abuse, and other issues."
                     android:textSize="45px"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
                     android:background="@color/darkblue" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -161,7 +165,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
                     android:text="Substance abuse can have lasting impacts on mental health. If you need to talk to someone, you may want to call this line."

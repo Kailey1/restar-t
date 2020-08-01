@@ -19,7 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="30dp"
+                android:layout_margin="35dp"
                 style="@style/yellowButton"
                 android:orientation="vertical">
 
@@ -35,6 +35,7 @@
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
                     android:text="Easing off an addiction is difficult, here are some other ways to make it easier."
@@ -43,7 +44,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
+
                     android:background="@color/darkblue"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,6 +58,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -64,18 +67,18 @@
                         android:layout_marginTop="5dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_regular"
-                        android:text="By mixing weaker drinks, you can drink a lower concentration of alcohol as you progress to sobriety."
+                        android:text="By mixing weaker drinks, you drink less alcohol as you progress to sobriety."
                         android:textSize="45px"/>
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="100dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginVertical="20dp"
                         android:src="@drawable/mix" />
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
                     android:background="@color/darkblue" />
 
                 <LinearLayout
@@ -93,6 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+
                         android:layout_marginLeft="20dp">
                         <TextView
                             android:layout_width="wrap_content"
@@ -105,15 +109,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/darkblue"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/dm_sans_regular"
-                            android:text="Spacing out drinks over a period of time lowers the concentration of alcohol in your body at a given time."
+                            android:text="Spacing out drinks lowers the concentration of alcohol in your body at a given time."
                             android:textSize="45px"/>
                     </LinearLayout>
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_margin="30dp"
+                    android:layout_marginVertical="30dp"
                     android:background="@color/darkblue" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,16 +136,18 @@
                     <TextView
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop=" 15dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_regular"
-                        android:text="Drinking something else you do not like as much can discourage you from overdrinking."
+                        android:text="Drinking something you enjoy less can discourage you from overdrinking."
                         android:textSize="45px"/>
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginLeft="20dp"
-                        android:src="@drawable/reducedrink"/>
+                        android:src="@drawable/reducedrink"
+                        android:layout_marginBottom="20dp"/>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

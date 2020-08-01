@@ -60,6 +60,7 @@
                 android:layout_height="match_parent"
                 style="@style/Widget.ProgressBar.Vertical"
                 android:paddingLeft="20dp"
+                android:animationResolution ="10000"
                 android:paddingRight="20dp"
                 android:paddingTop="25dp"
                 android:layout_alignBottom="@+id/wand"
