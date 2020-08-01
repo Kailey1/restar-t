@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.SEND_SMS" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,27 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReduceAlcoholConsumptionActivity"></activity>
-        <activity android:name=".ServiceActivity" />
-        <activity android:name=".AlcoholUseActivity" />
-        <activity android:name=".ShakeActivity" />
-        <activity android:name=".OnboardingActivity3" />
-        <activity android:name=".OnboardingActivity2" />
-        <activity android:name=".OnboardingActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ReduceAlcoholConsumptionActivity" />
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".AlcoholUseActivity" />
+        <activity android:name=".ShakeActivity" />
+        <activity android:name=".JournalEntry" />
+        <activity android:name=".OnboardingActivity3" />
+        <activity android:name=".OnboardingActivity2" />
+        <activity android:name=".OnboardingActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity" />
 
         <service
             android:name=".ShakeService"
             android:enabled="true"
-            android:exported="true">
-
-        </service>
+            android:exported="true"></service>
 
         <meta-data
             android:name="preloaded_fonts"
