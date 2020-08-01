@@ -3,7 +3,6 @@ package cooldudes.restart.model;
 
 public class Entry implements Comparable<Entry>{
 
-
     private int mood;
     private boolean goalMet;
     private String triggers, anything;
@@ -13,6 +12,7 @@ public class Entry implements Comparable<Entry>{
 
     public Entry(long d){
         this.time = d;
+        this.goalMet = true;
     }
 
     public int getMood() {

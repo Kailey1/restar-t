@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         final DashboardFragment mission = new DashboardFragment();
         loadFragment(mission);
 
-        DatabaseReference entryRef = fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(getMidnight()));
-        entryRef.setValue(new Entry(getMidnight()));
-
         AlarmReceiver.setReset(this);
 
         startService(new Intent(MainActivity.this,ShakeService.class));

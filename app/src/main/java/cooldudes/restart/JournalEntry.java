@@ -49,7 +49,7 @@ public class JournalEntry extends AppCompatActivity {
         anythingET = findViewById(R.id.anything_else);
         dayX = findViewById(R.id.dayX);
 
-        int days = AppUser.findDiff(, new Date().getTime())
+//        int days = AppUser.findDiff(, new Date().getTime())
 
         doneBtn.setText(strDate);
 
@@ -57,7 +57,7 @@ public class JournalEntry extends AppCompatActivity {
         entryTime = extras.getLong("ENTRY_TIME");
 
         // populates the views with what they already filled out previously
-        fireRef.child("users").child(user.getUid()).child("journal").addValueEventListener(new ValueEventListener() {
+        fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 e = dataSnapshot.getValue(Entry.class);
@@ -65,6 +65,7 @@ public class JournalEntry extends AppCompatActivity {
                 int m = e.getMood();
                 triggersET.setText(e.getTriggers());
                 anythingET.setText(e.getAnything());
+
                 if (e.isGoalMet()){
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
                     yesBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));

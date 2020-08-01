@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import cooldudes.restart.model.Entry;
+
+import static cooldudes.restart.AlarmReceiver.getMidnight;
 import static cooldudes.restart.LoginActivity.appUser;
 import static cooldudes.restart.LoginActivity.user;
 
@@ -60,6 +63,8 @@ public class OnboardingActivity3 extends AppCompatActivity {
                             }
                         });
 
+                DatabaseReference entryRef = fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(getMidnight()));
+                entryRef.setValue(new Entry(getMidnight()));
 
                 Intent i = new Intent(OnboardingActivity3.this, MainActivity.class);
                 startActivity(i);

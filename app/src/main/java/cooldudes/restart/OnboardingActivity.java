@@ -15,7 +15,8 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private Button nextBTN;
     private EditText beerET, wineET, whiskeyET, liquorET, otherET, concET;
-    private int beer, wine, whiskey, liquor, other, total;
+    private int beer, wine, whiskey, liquor, other;
+    private float total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +54,23 @@ public class OnboardingActivity extends AppCompatActivity {
                     if ((!isEmpty(otherET.getText().toString()) && !isEmpty(concET.getText().toString()))){
                         other = Integer.parseInt(otherET.getText().toString());
                         float conc = Float.parseFloat(concET.getText().toString());
-                        total += (other*conc)/100;
+                        total += other*(conc /100);
                     } else {
                         Toast.makeText(OnboardingActivity.this, "Make sure you fill out both the amount and concentration!", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
 
-                // records total daily ABV
-                appUser.setStartAmt(total);
+                // calculates standard drinks per day from total daily ABV
+                int standard = (int) Math.round(total / 17.7);
+                appUser.setStartAmt(standard);
+
+                // starting point for taper schedule
+                if (standard > 20) {
+                    appUser.setDailyLimit(16);
+                } else {
+                    appUser.setDailyLimit(standard-2);
+                }
 
                 // moves to next screen
                 Intent i = new Intent(OnboardingActivity.this, OnboardingActivity2.class);
