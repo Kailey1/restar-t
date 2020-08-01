@@ -153,10 +153,10 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="40dp"
-                android:text="what are you grateful for today?"
+                android:text="anything else on your mind?"
                 style="@style/subheader"/>
             <EditText
-                android:id="@+id/goal_explanation"
+                android:id="@+id/anything_else"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="15dp"

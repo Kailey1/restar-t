@@ -28,6 +28,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
+import cooldudes.restart.model.Entry;
+
+import static cooldudes.restart.AlarmReceiver.getMidnight;
+import static cooldudes.restart.LoginActivity.user;
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
@@ -51,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         final DashboardFragment mission = new DashboardFragment();
         loadFragment(mission);
 
-        // make sure to put country code in front
-//        sendText("hello", "+16139810982");
-//        sendEmail("hello", "hello", "ggaoww@gmail.com");
+        DatabaseReference entryRef = fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(getMidnight()));
+        entryRef.setValue(new Entry(getMidnight()));
+        AlarmReceiver.setReset(this);
 
         startService(new Intent(MainActivity.this,ShakeService.class));
 

@@ -6,7 +6,7 @@ public class Entry implements Comparable<Entry>{
 
     private int mood;
     private boolean drank;
-    private String written;
+    private String triggers, anything;
     private long date;
 
     public Entry(){}
@@ -31,12 +31,12 @@ public class Entry implements Comparable<Entry>{
         this.drank = drank;
     }
 
-    public String getWritten() {
-        return written;
+    public String getTriggers() {
+        return triggers;
     }
 
-    public void setWritten(String written) {
-        this.written = written;
+    public void setTriggers(String triggers) {
+        this.triggers = triggers;
     }
 
     public long getDate() {
@@ -55,5 +55,13 @@ public class Entry implements Comparable<Entry>{
         } else {
             return -1;
         }
+    }
+
+    public String getAnything() {
+        return anything;
+    }
+
+    public void setAnything(String anything) {
+        this.anything = anything;
     }
 }

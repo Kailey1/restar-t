@@ -1,5 +1,6 @@
 package cooldudes.restart;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -98,7 +99,10 @@ public class ShakeActivity extends AppCompatActivity {
         journalBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // open journal entry
+                // opens journal entry for that day
+                Intent i = new Intent(ShakeActivity.this, JournalEntry.class);
+                i.putExtra("ENTRY_TIME", AlarmReceiver.getMidnight());
+                startActivity(i);
             }
         });
 

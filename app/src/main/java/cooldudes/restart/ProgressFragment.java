@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -78,17 +77,9 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
             @Override
             public void onClick(View v) {
 
-                // finds midnight of current day
-                Calendar cal = Calendar.getInstance();
-                cal.set(Calendar.HOUR_OF_DAY, 0);
-                cal.clear(Calendar.MINUTE);
-                cal.clear(Calendar.SECOND);
-                cal.clear(Calendar.MILLISECOND);
-                long midnight = cal.getTimeInMillis();
-
                 // opens journal entry for that day
                 Intent i = new Intent(getActivity(), JournalEntry.class);
-                i.putExtra("ENTRY_ID", midnight);
+                i.putExtra("ENTRY_TIME", AlarmReceiver.getMidnight());
                 startActivity(i);
             }
         });
