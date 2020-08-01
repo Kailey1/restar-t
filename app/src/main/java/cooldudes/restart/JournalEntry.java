@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import cooldudes.restart.model.Entry;
 
 import static cooldudes.restart.LoginActivity.user;
+import static cooldudes.restart.model.AppUser.findDiff;
 
 import cooldudes.restart.model.AppUser;
 
@@ -29,7 +30,7 @@ public class JournalEntry extends AppCompatActivity {
     private Button yesBtn, noBtn, doneBtn;
     private EditText triggersET, anythingET;
     private Entry e;
-    private TextView dayX;
+    private TextView dayX, dateText;
     private Long entryTime;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
@@ -38,9 +39,9 @@ public class JournalEntry extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journalentry);
-        Date date = new Date();
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
-        String strDate= formatter.format(date);
+
 
         yesBtn = findViewById(R.id.yesbtn);
         noBtn = findViewById(R.id.nobtn);
@@ -48,13 +49,20 @@ public class JournalEntry extends AppCompatActivity {
         triggersET = findViewById(R.id.goal_explanation);
         anythingET = findViewById(R.id.anything_else);
         dayX = findViewById(R.id.dayX);
+        dateText = findViewById(R.id.date);
 
         //int days = AppUser.findDiff(, new Date().getTime())
 
-        doneBtn.setText(strDate);
+
+        //dayX.setText(strDate);
 
         Bundle extras = getIntent().getExtras();
         entryTime = extras.getLong("ENTRY_TIME");
+        String strDate = new java.text.SimpleDateFormat("MMMM dd yyyy").format(entryTime);
+        dateText.setText(strDate);
+
+        long dayNum = (findDiff(entryTime, new Date().getTime())+1);
+        dayX.setText(dayNum+"");
 
         // populates the views with what they already filled out previously
         fireRef.child("users").child(user.getUid()).child("journal").addValueEventListener(new ValueEventListener() {
