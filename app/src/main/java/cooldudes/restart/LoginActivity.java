@@ -54,8 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                             .setTheme(R.style.FirebaseLogin)
                             .setIsSmartLockEnabled(false)
                             .setAvailableProviders(Arrays.asList(
-                                    new AuthUI.IdpConfig.GoogleBuilder().build(),
-                                    new AuthUI.IdpConfig.EmailBuilder().build()))
+                                    new AuthUI.IdpConfig.GoogleBuilder().build()))
                             .setTosAndPrivacyPolicyUrls(
                                     "https://devpost.com/software/famjam-ytn3bv",
                                     "https://devpost.com/software/famjam-ytn3bv")
