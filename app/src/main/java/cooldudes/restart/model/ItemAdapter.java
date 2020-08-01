@@ -65,16 +65,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         final Entry m = entryList.get(position);
-        String dateHeader = "DAY " + (findDiff(m.getTime(), new Date().getTime())+1) + " | " + new java.text.SimpleDateFormat("MM/dd/yyyy").format(m.getTime());
+        String dateHeader = "DAY " + (findDiff(m.getTime(), new Date().getTime())+1) + " | " + new java.text.SimpleDateFormat("MMMM d").format(m.getTime());
         holder.date.setText(dateHeader);
-
         holder.journal.setText(m.getTriggers());
+
         int[] aliens = new int[]{R.drawable.wohoo, R.drawable.happy, R.drawable.meh, R.drawable.sad, R.drawable.horrible};
-        for (int i=0; i<5; i++) {
-            if (m.getMood()==i) {
-                holder.alien.setImageResource(aliens[i]);
-            }
-        }
+        holder.alien.setImageResource(aliens[m.getMood()]);
     }
 
 

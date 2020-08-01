@@ -10,6 +10,7 @@ import java.util.Date;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +32,11 @@ public class JournalEntry extends AppCompatActivity {
     private EditText triggersET, anythingET;
     private Entry e;
     private TextView dayX, dateText;
+    private ImageView alien1, alien2, alien3, alien4, alien5;
     private Long entryTime;
+
+    int[] aliens = new int[]{R.drawable.horrible, R.drawable.sad, R.drawable.meh, R.drawable.happy, R.drawable.wohoo};
+    int[] aliensFilled = new int[]{R.drawable.horriblefilled, R.drawable.sadfilled, R.drawable.mehfilled, R.drawable.happyfilled,R.drawable.wohoofilled};
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -42,7 +47,6 @@ public class JournalEntry extends AppCompatActivity {
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
 
-
         yesBtn = findViewById(R.id.yesbtn);
         noBtn = findViewById(R.id.nobtn);
         doneBtn = findViewById(R.id.donebtn);
@@ -50,9 +54,11 @@ public class JournalEntry extends AppCompatActivity {
         anythingET = findViewById(R.id.anything_else);
         dayX = findViewById(R.id.dayX);
         dateText = findViewById(R.id.date);
-
-
-        //dayX.setText(strDate);
+        alien1 = findViewById(R.id.alien_1);
+        alien2 = findViewById(R.id.alien_2);
+        alien3 = findViewById(R.id.alien_3);
+        alien4 = findViewById(R.id.alien_4);
+        alien5 = findViewById(R.id.alien_5);
 
         Bundle extras = getIntent().getExtras();
         entryTime = extras.getLong("ENTRY_TIME");
@@ -60,7 +66,7 @@ public class JournalEntry extends AppCompatActivity {
         dateText.setText(strDate);
 
         long dayNum = (findDiff(entryTime, new Date().getTime())+1);
-        dayX.setText("day " + dayNum + " your journey");
+        dayX.setText("day " + dayNum + " of your journey");
 
         // populates the views with what they already filled out previously
         fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).addValueEventListener(new ValueEventListener() {
@@ -69,6 +75,8 @@ public class JournalEntry extends AppCompatActivity {
                 e = dataSnapshot.getValue(Entry.class);
                 // TODO: add alien face
                 int m = e.getMood();
+
+
                 triggersET.setText(e.getTriggers());
                 anythingET.setText(e.getAnything());
 
@@ -83,6 +91,40 @@ public class JournalEntry extends AppCompatActivity {
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                     yesBtn.setBackgroundResource(R.drawable.border_lessround);
                 }
+
+
+
+                alien1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickAlien(0);
+                    }
+                });
+                alien2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickAlien(1);
+                    }
+                });
+                alien3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickAlien(2);
+                    }
+                });
+                alien4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickAlien(3);
+                    }
+                });
+                alien5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickAlien(4);
+                    }
+                });
+
             }
 
             @Override
@@ -125,14 +167,56 @@ public class JournalEntry extends AppCompatActivity {
 
                 e.setAnything(anythingET.getText().toString());
                 e.setTriggers(triggersET.getText().toString());
-                int m = 0;
-                e.setMood(m);
 
                 fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).setValue(e);
 
                 finish();
             }
         });
+    }
+
+    private void clickAlien(int i){
+
+        e.setMood(i);
+
+        // updates views
+        switch (i){
+            case 0:
+                alien1.setImageResource(aliensFilled[0]);
+                alien2.setImageResource(aliens[1]);
+                alien3.setImageResource(aliens[2]);
+                alien4.setImageResource(aliens[3]);
+                alien5.setImageResource(aliens[4]);
+                break;
+            case 1:
+                alien1.setImageResource(aliens[0]);
+                alien2.setImageResource(aliensFilled[1]);
+                alien3.setImageResource(aliens[2]);
+                alien4.setImageResource(aliens[3]);
+                alien5.setImageResource(aliens[4]);
+                break;
+            case 2:
+                alien1.setImageResource(aliens[0]);
+                alien2.setImageResource(aliens[1]);
+                alien3.setImageResource(aliensFilled[2]);
+                alien4.setImageResource(aliens[3]);
+                alien5.setImageResource(aliens[4]);
+                break;
+            case 3:
+                alien1.setImageResource(aliens[0]);
+                alien2.setImageResource(aliens[1]);
+                alien3.setImageResource(aliens[2]);
+                alien4.setImageResource(aliensFilled[3]);
+                alien5.setImageResource(aliens[4]);
+                break;
+            case 4:
+                alien1.setImageResource(aliens[0]);
+                alien2.setImageResource(aliens[1]);
+                alien3.setImageResource(aliens[2]);
+                alien4.setImageResource(aliens[3]);
+                alien5.setImageResource(aliensFilled[4]);
+                break;
+        }
     }
 
 
