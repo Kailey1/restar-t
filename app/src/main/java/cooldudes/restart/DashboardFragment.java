@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextClock;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ import static cooldudes.restart.model.AppUser.findDiff;
 public class DashboardFragment extends Fragment {
 
     private TextView goalTV, streakTV, tMinusTV, progressTV;
-
+    private TextView percent, progressbar;
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -36,7 +37,7 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        //progress bar
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_dashboard, null);
         goalTV = v.findViewById(R.id.daily_goal);

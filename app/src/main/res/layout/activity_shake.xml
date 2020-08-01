@@ -106,37 +106,49 @@
         android:paddingBottom="10dp"
         android:textColor="@color/darkblue"
         android:layout_gravity="center"/>
+
     <Button
         android:id="@+id/journal_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@color/yellow"
+        android:drawableLeft="@drawable/pencil"
         android:fontFamily="@font/dm_sans_medium"
+        android:paddingLeft="40px"
+        android:paddingTop="10dp"
+        android:paddingRight="40px"
+        android:paddingBottom="10dp"
         android:text="    how do you feel?"
         android:textAllCaps="false"
-        android:drawableLeft="@drawable/pencil"
-        android:textSize="64px"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="40px"
-        android:paddingRight="40px"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:textColor="@color/darkblue"
-        android:layout_gravity="center"/>
+        android:textSize="64px" />
 
-    <TextView
-        android:id="@+id/counttime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:text="5:00"
-        style="@style/NormalText"
-
-        android:textSize="50px" />
-
-
-
-
-
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/counttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="50dp"
+            android:layout_alignParentBottom="true"
+            tools:text="5:00"
+            style="@style/NormalText"
+            android:textSize="80px" />
+        <Button
+            android:id="@+id/good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/border"
+            android:text="i'm good"
+            android:drawableRight="@drawable/check"
+            android:drawablePadding="10dp"
+            android:padding="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            style="@style/NormalText"/>
+    </RelativeLayout>
 </LinearLayout>
