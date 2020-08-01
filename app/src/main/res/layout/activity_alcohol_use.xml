@@ -1,187 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkblue"
     tools:context=".AlcoholUseActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="50dp">
-
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardBackgroundColor="@color/yellow"
-
+            android:layout_margin="30dp"
             app:cardCornerRadius="30dp">
-
-                <RelativeLayout
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginBottom="30dp"
-                    >
+                    android:layout_margin="30dp"
+                    style="@style/yellowButton"
+                    android:orientation="vertical">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_gravity="left"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/lora_bold"
                         android:text="Alcohol Use:"
-                        android:textSize="64px"
-                        android:textStyle="bold" />
+                        android:textSize="80px"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkblue"
+                        android:fontFamily="@font/lora_bold"
+                        android:text="weighing the risks \nand benefits"
+                        android:textSize="60px"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_gravity="left"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="20dp"
                         android:textColor="@color/darkblue"
-                        android:fontFamily="@font/lora_bold"
-                        android:text="weighing the risks and benefits"
-                        android:textSize="45px"
-                        android:textStyle="bold" />
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_gravity="left"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="90dp"
-                            android:textColor="@color/darkblue"
-                            android:fontFamily="@font/dm_sans_regular"
-                            android:text="Since the creation of alcohol, society has continued to argue about the risks and benefits for our health, livelihoods, and social gatherings"
-                            android:textSize="35px"
-                            android:textStyle="bold" />
-
-
+                        android:fontFamily="@font/dm_sans_regular"
+                        android:text="Since the creation of alcohol, society has continued to argue about the risks and benefits for our health, livelihoods, and social gatherings"
+                        android:textSize="45px"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="180dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_margin="20dp"
                         android:background="@color/darkblue" />
-
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_gravity="left"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="190dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_bold"
                         android:text="Risks"
-                        android:textSize="55px"
-                        android:textStyle="bold" />
+                        android:textSize="55px" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="220dp"
-                        >
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/risk" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_gravity="left"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="15dp"
-                            android:textColor="@color/darkblue"
-                            android:fontFamily="@font/dm_sans_regular"
-                            android:text="• Cancer\n• Pancreatitis\n• Sudden death\n• Stroke\n• High blood pressure\n• Heart damage"
-                            android:textSize="35px"
-                            android:textStyle="bold" />
-
-
-                    </LinearLayout>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="340dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@color/darkblue" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_gravity="left"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="350dp"
-                        android:textColor="@color/darkblue"
-                        android:fontFamily="@font/dm_sans_bold"
-                        android:text="Benefits"
-                        android:textSize="55px"
-                        android:textStyle="bold" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="380dp"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="150dp"
-                            android:layout_gravity="left"
-                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:textColor="@color/darkblue"
                             android:fontFamily="@font/dm_sans_regular"
-                            android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
-                            android:textSize="35px"
-
-                            android:textStyle="bold" />
+                            android:text="• Cancer\n• Pancreatitis\n• Sudden death\n• Stroke\n• High blood pressure\n• Heart damage"
+                            android:textSize="45px"/>
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/champagne_glass" />
+                            android:layout_marginLeft="20dp"
+                            android:src="@drawable/risk" />
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="480dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_margin="20dp"
                         android:background="@color/darkblue" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="500dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_gravity="left"
-
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/champagne_glass"
+                            android:layout_gravity="center_vertical"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/darkblue"
-                            android:fontFamily="@font/dm_sans_regular"
-                            android:text="The benefits and risks of moderate drinking change over a lifetime. Risks generally exceed benefits until middle age, when cardiovascular disease is an  increasingly large cause of  death."
-                            android:textSize="35px"/>
-
-
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/darkblue"
+                                android:fontFamily="@font/dm_sans_bold"
+                                android:text="Benefits"
+                                android:textSize="55px"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/darkblue"
+                                android:fontFamily="@font/dm_sans_regular"
+                                android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
+                                android:textSize="45px"/>
+                        </LinearLayout>
                     </LinearLayout>
-
-
-                </RelativeLayout>
-
-
-
-           </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_margin="20dp"
+                        android:background="@color/darkblue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkblue"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:text="Deciding about Drinking"
+                        android:textSize="55px"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkblue"
+                        android:layout_marginBottom="60dp"
+                        android:fontFamily="@font/dm_sans_regular"
+                        android:text="The benefits and risks of moderate drinking change over a lifetime. Risks generally exceed benefits until middle age, when cardiovascular disease is an  increasingly large cause of  death."
+                        android:textSize="45px"/>
+                </LinearLayout>
+            </ScrollView>
+       </android.support.v7.widget.CardView>
+</FrameLayout>
