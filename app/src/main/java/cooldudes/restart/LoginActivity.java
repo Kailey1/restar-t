@@ -55,9 +55,6 @@ public class LoginActivity extends AppCompatActivity {
                             .setIsSmartLockEnabled(false)
                             .setAvailableProviders(Arrays.asList(
                                     new AuthUI.IdpConfig.GoogleBuilder().build()))
-                            .setTosAndPrivacyPolicyUrls(
-                                    "https://devpost.com/software/famjam-ytn3bv",
-                                    "https://devpost.com/software/famjam-ytn3bv")
                             .build(),
                     RC_SIGN_IN);
         }
