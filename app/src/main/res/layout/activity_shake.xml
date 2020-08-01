@@ -27,9 +27,124 @@
         android:text="Wait 5 minutes and remember \nwhy you wanted to change."
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="50dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/drink_spinner"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/drink_spinner"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/drink_spinner"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:fontFamily="@font/dm_sans_medium"
+        android:text="    talk to someone. "
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/phone"
+        android:textSize="64px"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/darkblue"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:fontFamily="@font/dm_sans_medium"
+        android:text="    how do you feel?"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/pencil"
+        android:textSize="64px"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/darkblue"
+        android:layout_gravity="center"/>
+
+
 
     
 
