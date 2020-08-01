@@ -4,38 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/darkblue">
     <!-- tools:context=".OnboardingActivity3" -->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="restar-t"
-                android:textSize="144px"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="70dp"
-                android:fontFamily="@font/lora_bold"
-                android:textColor="@color/white"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="30dp"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/back_button_1"
+                android:layout_marginLeft="70dp">
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/ic_baseline_arrow_back_ios_24"/>
-                <TextView
+                    android:text="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -46,28 +44,25 @@
                     android:textColor="@color/white"
                     android:background="@drawable/drink_spinner"/>
             </LinearLayout>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="list 3 reasons why you want to overcome this issue"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="70dp"
-                style="@style/subheader"
-                />
-
-            <!--<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="570dp"
-                android:layout_marginLeft="30dp">
-                <Button
-                    android:id="@+id/more_reasons"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="70dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason2"
                     android:layout_width="match_parent"
-                    android:layout_marginHorizontal="50dp"
-                    android:text="+ add more reasons"
-                    android:textColor="@color/yellow"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:layout_marginLeft="30dp"
@@ -78,60 +73,22 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="70dp">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="70dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center|center_vertical"
-                        android:gravity="center|center_vertical"
-                        android:fontFamily="@font/dm_sans_bold"
-                        android:textSize="48px"
-                        android:background="@drawable/number"/>
-                    <EditText
-                        android:id="@+id/reason1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_marginTop="20sp"
-                        android:textColor="@color/white"
-                        android:background="@drawable/drink_spinner"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:text="3"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="70dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center|center_vertical"
-                        android:gravity="center|center_vertical"
-                        android:fontFamily="@font/dm_sans_bold"
-                        android:textSize="48px"
-                        android:background="@drawable/number"/>
-                    <EditText
-                        android:id="@+id/reason2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_marginTop="20sp"
-                        android:background="@drawable/drink_spinner"/>
-                </LinearLayout>
-                <LinearLayout
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:textSize="48px"
+                    android:background="@drawable/number"/>
+                <EditText
+                    android:id="@+id/reason3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -154,16 +111,9 @@
                 android:textColor="@color/white"
                 android:requiresFadingEdge="vertical">>
 
-                <!--<android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:scrollbars="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:fadingEdge="horizontal"
-                    android:fadingEdgeLength="50dp"
-                    android:fillViewport="false"
-                    android:textColor="@color/white"
-                    android:requiresFadingEdge="vertical">>
+            </android.support.v7.widget.RecyclerView>-->
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -188,16 +138,66 @@
                 android:id="@+id/back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="done"
-                android:paddingVertical="25dp"
-                android:paddingRight="80dp"
-                android:paddingLeft="30dp"
-                android:layout_marginTop="90dp"
-                android:layout_gravity="right"
-                style="@style/yellowButton"/>
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/ic_baseline_arrow_back_ios_24"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="ABOUT YOU"
+                android:textSize="72px"
+                android:fontFamily="@font/dm_sans_bold"
+                android:textColor="@color/white"/>
         </LinearLayout>
-    </ScrollView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="list 3+ reasons why you want to overcome this issue"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="70dp"
+            style="@style/subheader"
+            />
+    </LinearLayout>
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="570dp"
+        android:layout_marginLeft="30dp">
+        <Button
+            android:id="@+id/more_reasons"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="50dp"
+            android:text="+ add more reasons"
+            android:textColor="@color/yellow"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textSize="48px"
+            android:fontFamily="@font/dm_sans_medium"
+            android:background="@drawable/borderyellow"/>
+    </LinearLayout> -->
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="280dp"
+        android:layout_marginRight="-50dp"
+        android:layout_marginTop="650dp">
+
+        <Button
+            android:id="@+id/onboarding_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="done"
+            android:gravity="left"
+            android:paddingVertical="25dp"
+            android:paddingRight="80dp"
+            android:paddingLeft="30dp"
+            android:layout_gravity="right"
+            style="@style/yellowButton"/>
+    </LinearLayout>
 
 </FrameLayout>
