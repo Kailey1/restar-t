@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".JournalEntry">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/yellow"
+            android:fontFamily="@font/lora_bold"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="15dp"
+            android:text="journal entry"
+            android:textSize="64px"
+            android:textColor="@color/darkblue" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/star"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JULY 31, 2020"
+                        style="@style/subtitle"
+                        android:layout_marginLeft="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="day 27 of your journey"
+                        android:layout_marginLeft="20dp"
+                        style="@style/NormalText"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="100dp"
+                android:layout_height="1dp"
+                android:background="@android:color/white"/>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="how are you feeling?"
+                android:layout_marginLeft="15dp"
+                style="@style/subheader"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <ImageView
+                    style="@style/mood"
+                    android:src="@drawable/horrible"/>
+                <ImageView
+                    style="@style/mood"
+
+                    android:src="@drawable/sad"/>
+                <ImageView
+                    style="@style/mood"
+
+                    android:src="@drawable/meh"/>
+                <ImageView
+                    style="@style/mood"
+
+                    android:src="@drawable/happy"/>
+                <ImageView
+                    style="@style/mood"
+
+                    android:src="@drawable/wohoo"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="did you meet today's goal?"
+                android:layout_marginLeft="15dp"
+                style="@style/subheader"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/nobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_lessround"
+                    android:text="no"
+                    style="@style/NormalText"
+                    android:layout_marginLeft="15dp"/>
+                <Button
+                    android:id="@+id/yesbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="yes"
+                    style="@style/NormalText"
+                    android:background="@drawable/border_lessround"
+                    android:layout_marginLeft="15dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>
