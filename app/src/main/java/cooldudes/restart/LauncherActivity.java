@@ -17,7 +17,7 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the MainActivity  */
-                Intent mainIntent = new Intent(LauncherActivity.this, LoginActivity.class);
+                Intent mainIntent = new Intent(LauncherActivity.this, MainActivity.class);
                 startActivity(mainIntent);
                 finish();
             }
