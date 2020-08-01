@@ -7,14 +7,7 @@
         <item name="colorAccent">@color/yellow</item>
     </style>
 
-    <style name="FirebaseLogin" parent="FirebaseUI">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:background">#FEF5EF</item>
-    </style>
+
 
     <style name="yellowButton">
         <item name="color">@color/darkblue</item>
@@ -62,6 +55,24 @@
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="splashpage">
+        <item name="android:background">@drawable/splash</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+    </style>
+    <style name="FirebaseLogin" parent="FirebaseUI">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/splash</item>
     </style>
 
 </resources>

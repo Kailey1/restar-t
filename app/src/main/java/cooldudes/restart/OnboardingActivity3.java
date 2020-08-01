@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +21,7 @@ import static cooldudes.restart.LoginActivity.user;
 public class OnboardingActivity3 extends AppCompatActivity {
 
     private Button doneBTN;
+    private ImageButton backBTN;
     private EditText reason1ET, reason2ET, reason3ET;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
@@ -33,6 +35,7 @@ public class OnboardingActivity3 extends AppCompatActivity {
         reason1ET = findViewById(R.id.reason1);
         reason2ET = findViewById(R.id.reason2);
         reason3ET = findViewById(R.id.reason3);
+        backBTN = findViewById(R.id.back_button);
 
         doneBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +64,15 @@ public class OnboardingActivity3 extends AppCompatActivity {
                 Intent i = new Intent(OnboardingActivity3.this, MainActivity.class);
                 startActivity(i);
                 finish();
+            }
+        });
+
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(OnboardingActivity3.this, OnboardingActivity.class);
+                startActivity(i);
             }
         });
     }

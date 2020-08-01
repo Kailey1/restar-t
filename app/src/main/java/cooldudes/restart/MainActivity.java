@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         m = this;
 
         // sets up nav bar and fragments
+        createNotificationChannel();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         final DashboardFragment mission = new DashboardFragment();
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         AlarmReceiver.setReset(this);
 
         startService(new Intent(MainActivity.this,ShakeService.class));
+
+            // testing to see if notification worked
+            //addNotification("hi","poop");
 
     }
 
@@ -105,10 +110,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return false;
     }
 
-    public void setUpNotifs(){
-
-    }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -125,6 +126,91 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
         return loadFragment(fragment);
+    }
+    /*
+    // set up listener for when data changed --> sends relevant notifications to user
+    public void setUpNotifs(){
+        DatabaseReference requestRef = fireRef.child("requests");
+        requestRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                reqs = getArrayList(REQS, MainActivity.this);
+
+                // clears the list to fetch new data
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                    Request req = itemSnapshot.getValue(Request.class);
+                    if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        int d = RequestFragment.findDistance(RequestFragment.location, req.getLat(), req.getLng());
+                        int wait = Request.secAgo((long) req.getTimestamp());
+                        // sends a notification to alert user of a nearby request posted
+                        if (reqs != null){
+                            boolean mine = reqs.contains(req.getId());
+                            // if pending request, within 200m and 30 seconds
+                            if (req.getStatus() == 0 && d < 200 && wait <= 30 && !mine) {
+                                String title = "Do you have a " + (Request.products[req.getProduct()]).toLowerCase() + " ?";
+                                String message = "Help out a sister in need! (" + d + " m away)";
+                                addNotification(title, message, req.getProduct());
+                            }
+                        }
+                    }
+                    // if the request is the user's own pending request that has been answered
+                    if (reqs != null && reqs.contains(req.getId()) && req.getStatus()==1){
+                        String title = "Help is on the way!";
+                        String message = "Your code word is " + req.getCode();
+                        // removes from pending list stored in phone
+                        reqs.remove(req.getId());
+                        saveArrayList(reqs, REQS, MainActivity.this);
+                        // shows notification that help is coming
+                        addNotification(title, message, req.getProduct());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled: " + databaseError);
+            }
+        });
+    }*/
+
+    private void addNotification(String title, String message) {
+
+        // builds notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "restar-t")
+                .setSmallIcon(R.drawable.icon)
+                .setColor(getResources().getColor(R.color.colorPrimary))
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setAutoCancel(true);
+
+        // creates the intent needed to show the notification
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("message", message);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+
+        // add as notification
+        NotificationManager notificationManager = (NotificationManager)getSystemService(
+                Context.NOTIFICATION_SERVICE
+        );
+        notificationManager.notify(0,builder.build());
+
+    }
+    private void createNotificationChannel() {
+        // create the NotificationChannel, but only on API 26+ because the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "restar-tchannel";
+            String description = "Channel for restar-t notifications";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("restar-t", name, importance);
+            channel.setDescription(description);
+            // register the channel with the system; you can't change the importance or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
 }
