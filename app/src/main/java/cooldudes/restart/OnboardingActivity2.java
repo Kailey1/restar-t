@@ -22,7 +22,7 @@ public class OnboardingActivity2 extends AppCompatActivity {
 
     private Button doneBTN;
     private ImageButton backBTN;
-    private EditText emailET, smsET;
+    private EditText smsET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class OnboardingActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding2);
 
         doneBTN = findViewById(R.id.onboarding2_next);
-        emailET = findViewById(R.id.onboarding_email);
         smsET = findViewById(R.id.onboarding_sms);
         backBTN = findViewById(R.id.back_button);
 
@@ -38,7 +37,6 @@ public class OnboardingActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                appUser.setContactEmail(String.valueOf(emailET.getText()));
                 appUser.setContactSms(String.valueOf(smsET.getText()));
 
                 Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
