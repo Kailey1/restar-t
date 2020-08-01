@@ -49,7 +49,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_margin="30dp"
+                        android:layout_marginVertical="30dp"
                         android:background="@color/darkblue" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -57,6 +57,7 @@
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_bold"
                         android:text="Risks"
+                        android:layout_marginLeft="10dp"
                         android:textSize="55px" />
 
                     <LinearLayout
@@ -67,21 +68,24 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="15dp"
                             android:textColor="@color/darkblue"
+                            android:layout_marginLeft="10dp"
+                            android:lineHeight="28dp"
                             android:fontFamily="@font/dm_sans_regular"
                             android:text="• Cancer\n• Pancreatitis\n• Sudden death\n• Stroke\n• High blood pressure\n• Heart damage"
-                            android:textSize="45px"/>
+                            android:textSize="45px" />
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="100dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
                             android:src="@drawable/risk" />
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_margin="30dp"
+                        android:layout_marginVertical="30dp"
                         android:background="@color/darkblue" />
 
                     <LinearLayout
@@ -109,6 +113,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/darkblue"
+                                android:layout_marginTop="15dp"
                                 android:fontFamily="@font/dm_sans_regular"
                                 android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
                                 android:textSize="45px"/>
@@ -117,7 +122,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_margin="30dp"
+                        android:layout_marginVertical="30dp"
                         android:background="@color/darkblue" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -131,7 +136,9 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/darkblue"
                         android:layout_marginBottom="60dp"
+                        android:layout_marginTop="15dp"
                         android:fontFamily="@font/dm_sans_regular"
+                        android:lineHeight="25"
                         android:text="The benefits and risks of moderate drinking change over a lifetime. Risks generally exceed benefits until middle age, when cardiovascular disease is an  increasingly large cause of  death."
                         android:textSize="45px"/>
                 </LinearLayout>
