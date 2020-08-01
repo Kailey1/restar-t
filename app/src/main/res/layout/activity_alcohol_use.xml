@@ -13,6 +13,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="50dp"
+        android:orientation="vertical"
         android:layout_marginBottom="50dp">
 
         <android.support.v7.widget.CardView
@@ -56,7 +57,7 @@
                             android:layout_width="match_parent"
                             android:layout_gravity="left"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="100dp"
+                            android:layout_marginTop="90dp"
                             android:textColor="@color/darkblue"
                             android:fontFamily="@font/dm_sans_regular"
                             android:text="Since the creation of alcohol, society has continued to argue about the risks and benefits for our health, livelihoods, and social gatherings"
@@ -68,71 +69,93 @@
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="200dp"
+                        android:layout_marginTop="180dp"
                         android:layout_marginRight="10dp"
                         android:background="@color/darkblue" />
 
-                    <RelativeLayout
+                    <TextView
                         android:layout_width="match_parent"
+                        android:layout_gravity="left"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="230dp"
+                        android:layout_marginTop="190dp"
+                        android:textColor="@color/darkblue"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:text="Risks"
+                        android:textSize="55px"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="220dp"
                         >
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_gravity="left"
-                            android:layout_height="wrap_content"
 
-                            android:textColor="@color/darkblue"
-                            android:fontFamily="@font/dm_sans_bold"
-                            android:text="Risks"
-                            android:textSize="55px"
-                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/risk" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_gravity="left"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginRight="110dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:textColor="@color/darkblue"
                             android:fontFamily="@font/dm_sans_regular"
                             android:text="• Cancer\n• Pancreatitis\n• Sudden death\n• Stroke\n• High blood pressure\n• Heart damage"
                             android:textSize="35px"
                             android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/drinks" />
-                    </RelativeLayout>
+
+
+                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="390dp"
+                        android:layout_marginTop="340dp"
                         android:layout_marginRight="10dp"
                         android:background="@color/darkblue" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_gravity="left"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="420dp"
+                        android:layout_marginTop="350dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_bold"
                         android:text="Benefits"
                         android:textSize="55px"
                         android:textStyle="bold" />
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_gravity="left"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="450dp"
-                        android:textColor="@color/darkblue"
-                        android:fontFamily="@font/dm_sans_regular"
-                        android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
-                        android:textSize="35px"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="380dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_gravity="left"
+                            android:layout_marginRight="10dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkblue"
+                            android:fontFamily="@font/dm_sans_regular"
+                            android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
+                            android:textSize="35px"
+
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/champagne_glass" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="480dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/darkblue" />
 
 
                 </RelativeLayout>
