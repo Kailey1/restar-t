@@ -30,8 +30,25 @@ public class OnboardingActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding2);
 
         doneBTN = findViewById(R.id.onboarding2_next);
-        smsET = findViewById(R.id.onboarding_sms);
+
         backBTN = findViewById(R.id.back_button);
+
+        smsET = findViewById(R.id.onboarding_sms);
+
+        //my failed attempt at error validation rip
+        /*
+        if( smsET.getText().toString().length() == 12 ){
+            Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
+            startActivity(i);
+        }
+        else{
+            Toast.makeText(OnboardingActivity2.this, "!", Toast.LENGTH_SHORT).show();
+            smsET.setError( "First name is required!" );
+            return;
+        }
+        *
+         */
+
 
         doneBTN.setOnClickListener(new View.OnClickListener() {
             @Override
