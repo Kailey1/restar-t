@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:text="done"
                 android:gravity="left"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="145dp"
                 android:layout_marginRight="-20dp"
                 android:paddingVertical="25dp"
                 android:paddingRight="80dp"
