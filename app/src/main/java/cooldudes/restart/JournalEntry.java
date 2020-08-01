@@ -51,7 +51,7 @@ public class JournalEntry extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(JournalEntry.this, MainActivity.class);
                 startActivity(i);
-                
+
             }
         });
     }
