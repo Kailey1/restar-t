@@ -1,5 +1,6 @@
 package cooldudes.restart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,8 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,7 +39,8 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
     private SwipeRefreshLayout swipeRefreshLayout;
     public RecyclerView recyclerView;
     private TextView msgView;
-    private View view;
+    private Button newBTN;
+
 
     private List<Entry> entries = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
@@ -53,7 +56,7 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_entry, null);
+        View view = inflater.inflate(R.layout.activity_progress, null);
 
         main = (MainActivity) getActivity();
 
@@ -67,14 +70,34 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new ItemAdapter(entries, main);
         recyclerView.setAdapter(mAdapter);
+        newBTN = view.findViewById(R.id.new_button);
 
-        getEntry();
+        getEntries();
+
+        newBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // finds midnight of current day
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.clear(Calendar.MINUTE);
+                cal.clear(Calendar.SECOND);
+                cal.clear(Calendar.MILLISECOND);
+                long midnight = cal.getTimeInMillis();
+
+                // opens journal entry for that day
+                Intent i = new Intent(getActivity(), JournalEntry.class);
+                i.putExtra("ENTRY_ID", midnight);
+                startActivity(i);
+            }
+        });
 
 
         return view;
     }
 
-    public void getEntry() {
+    public void getEntries() {
         swipeRefreshLayout.setRefreshing(true);
         // retrieves info from database
         DatabaseReference entriesRef = fireRef.child("users").child(user.getUid()).child("journal");
@@ -105,7 +128,7 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
     // reloads when refreshed
     @Override
     public void onRefresh() {
-        getEntry();
+        getEntries();
     }
 
 }

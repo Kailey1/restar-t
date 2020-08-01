@@ -1,6 +1,7 @@
 package cooldudes.restart;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
     final static String TAG = MainActivity.class.getSimpleName();
 
+    public static MainActivity m;
+
     // Firebase
     public static DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        m = this;
 
         // sets up nav bar and fragments
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -55,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     // to send texts
-    private void sendText(String message, String toNumber){
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
+    public static void sendText(String message, String toNumber, Activity a){
+        if (ActivityCompat.checkSelfPermission(a, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(a,
                     new String[]{Manifest.permission.SEND_SMS},
                     MY_PERMISSIONS_REQUEST_SEND_SMS);
         } else {
@@ -68,16 +73,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     // TODO: do we want to send emails automatically?
     // to send emails
-    private void sendEmail(String message, String subject, String toAddress){
+    public static void sendEmail(String message, String subject, String toAddress, Activity a){
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
         i.putExtra(Intent.EXTRA_EMAIL  , new String[]{toAddress});
         i.putExtra(Intent.EXTRA_SUBJECT, subject);
         i.putExtra(Intent.EXTRA_TEXT   , message);
         try {
-            startActivity(Intent.createChooser(i, "Let someone know..."));
+            a.startActivity(Intent.createChooser(i, "Let someone know..."));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MainActivity.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(a, "No email clients installed.", Toast.LENGTH_SHORT).show();
         }
     }
 

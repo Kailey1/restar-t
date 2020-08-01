@@ -3,6 +3,7 @@ package cooldudes.restart.model;
 
 public class Entry implements Comparable<Entry>{
 
+
     private int mood;
     private boolean drank;
     private String written;

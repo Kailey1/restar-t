@@ -165,7 +165,7 @@
                 android:textColor="@color/white"
                 android:background="@drawable/drink_spinner"/>
             <Button
-                android:id="@+id/onboarding_done"
+                android:id="@+id/donebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="save"

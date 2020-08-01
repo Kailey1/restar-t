@@ -8,28 +8,40 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.collection.LLRBNode;
+
+import java.util.Calendar;
+
+import static cooldudes.restart.LoginActivity.user;
 
 public class JournalEntry extends AppCompatActivity {
 
     private Button yesBtn, noBtn, doneBtn;
+
+    DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journalentry);
 
+        Bundle extras = getIntent().getExtras();
+        String id = extras.getString("ENTRY_ID");
+
         yesBtn = findViewById(R.id.yesbtn);
         noBtn = findViewById(R.id.nobtn);
+        doneBtn = findViewById(R.id.donebtn);
 
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                yesBtn.setTextColor(Color.parseColor(String.valueOf(0xAAC1836)));
-                yesBtn.setBackgroundColor(Color.parseColor(String.valueOf(0xAAFFFFFF)));
+                yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
+                yesBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
 
-                noBtn.setTextColor(Color.parseColor(String.valueOf(0xAAFFFFFF)));
+                noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                 noBtn.setBackgroundResource(R.drawable.border_lessround);
             }
         });
@@ -38,10 +50,10 @@ public class JournalEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                noBtn.setTextColor(Color.parseColor(String.valueOf(0xAAC1836)));
-                noBtn.setBackgroundColor(Color.parseColor(String.valueOf(0xAAFFFFFF)));
+                noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
+                noBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
 
-                yesBtn.setTextColor(Color.parseColor(String.valueOf(0xAAFFFFFF)));
+                yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                 yesBtn.setBackgroundResource(R.drawable.border_lessround);
             }
         });
@@ -49,8 +61,10 @@ public class JournalEntry extends AppCompatActivity {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(JournalEntry.this, MainActivity.class);
-                startActivity(i);
+
+                fireRef.child("users").child(user.getUid()).child("entries").push();
+
+                finish();
 
             }
         });
