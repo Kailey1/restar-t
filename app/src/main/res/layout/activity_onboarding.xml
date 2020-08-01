@@ -58,6 +58,9 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
                     android:inputType="number"
+                    android:paddingHorizontal="0dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,8 +83,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
+                    android:paddingHorizontal="0dp"
                     android:background="@drawable/drink_spinner"
                     android:inputType="number"
+                    android:gravity="center"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,10 +106,13 @@
                     android:paddingLeft="10dp"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
+                    android:paddingHorizontal="0dp"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"
                     android:background="@drawable/drink_spinner"
                     android:inputType="number"
+                    android:gravity="center"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,11 +131,14 @@
                     android:id="@+id/liquor_amt"
                     android:paddingLeft="10dp"
                     android:layout_width="56dp"
+                    android:paddingHorizontal="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
+                    android:textColor="@color/white"
                     android:inputType="number"
+                    android:gravity="center"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,9 +159,12 @@
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
+                    android:paddingHorizontal="0dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
                     android:inputType="number"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -164,9 +178,12 @@
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
+                    android:paddingHorizontal="0dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
+                    android:textColor="@color/white"
                     android:inputType="number"
+                    android:gravity="center"
                     android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"

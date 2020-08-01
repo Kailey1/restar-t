@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +21,7 @@ import static cooldudes.restart.LoginActivity.user;
 public class OnboardingActivity2 extends AppCompatActivity {
 
     private Button doneBTN;
+    private ImageButton backBTN;
     private EditText emailET, smsET;
 
     @Override
@@ -30,6 +32,7 @@ public class OnboardingActivity2 extends AppCompatActivity {
         doneBTN = findViewById(R.id.onboarding2_next);
         emailET = findViewById(R.id.onboarding_email);
         smsET = findViewById(R.id.onboarding_sms);
+        backBTN = findViewById(R.id.back_button);
 
         doneBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,14 @@ public class OnboardingActivity2 extends AppCompatActivity {
                 appUser.setContactSms(String.valueOf(smsET.getText()));
 
                 Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
+                startActivity(i);
+            }
+        });
+
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity.class);
                 startActivity(i);
             }
         });
