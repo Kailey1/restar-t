@@ -4,7 +4,7 @@ package cooldudes.restart.model;
 public class Entry implements Comparable<Entry>{
 
     private int mood;
-    private boolean goalMet;
+    private boolean goalMet, filled;
     private String triggers, anything;
     private long time;
 
@@ -13,6 +13,7 @@ public class Entry implements Comparable<Entry>{
     public Entry(long d){
         this.time = d;
         this.goalMet = true;
+        this.filled = false;
     }
 
     public int getMood() {
@@ -63,5 +64,13 @@ public class Entry implements Comparable<Entry>{
 
     public void setAnything(String anything) {
         this.anything = anything;
+    }
+
+    public boolean isFilled() {
+        return filled;
+    }
+
+    public void setFilled(boolean filled) {
+        this.filled = filled;
     }
 }

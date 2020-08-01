@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/entry_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/darkblue"
@@ -22,7 +23,6 @@
                 android:layout_height="wrap_content"
                 style="@style/NormalText"
                 android:fontFamily="@font/dm_sans_bold"
-                android:text="DAY 26  -  July 30, 2020"
                 android:paddingBottom="10dp"
                 android:id="@+id/date"/>
             <LinearLayout
@@ -34,15 +34,18 @@
                     android:layout_width="80px"
                     android:layout_height="80px"
                     android:src="@drawable/meh"
-                    android:id="@+id/alien"/>
+                    android:id="@+id/alien"
+                    android:visibility="gone"/>
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
-                    android:text="Julia really helped me out today, I almost relapsed but..."
                     style="@style/NormalText"
-                    android:textSize="36px"
-                    android:id="@+id/journal"/>
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textSize="48px"
+                    android:id="@+id/goal_met"
+                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
