@@ -1,5 +1,6 @@
 package cooldudes.restart;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,6 @@ import static cooldudes.restart.LoginActivity.user;
 public class ShakeActivity extends AppCompatActivity {
 
     private TextView reason1TV, reason2TV, reason3TV;
-    private String reason1, reason2, reason3;
     private Button talkBTN, journalBTN;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
@@ -28,7 +28,21 @@ public class ShakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shake);
 
+        // sends an automated sms
+        fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
+                  @Override
+                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      String phone = dataSnapshot.getValue(String.class);
+                      String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
+                      MainActivity.sendText(msg, phone, ShakeActivity.this);
+                  }
 
+                  @Override
+                  public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                  }
+              }
+        );
 
         reason1TV = findViewById(R.id.reason1);
         reason2TV = findViewById(R.id.reason2);
@@ -85,7 +99,10 @@ public class ShakeActivity extends AppCompatActivity {
         journalBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // open journal entry
+                // opens journal entry for that day
+                Intent i = new Intent(ShakeActivity.this, JournalEntry.class);
+                i.putExtra("ENTRY_TIME", AlarmReceiver.getMidnight());
+                startActivity(i);
             }
         });
 

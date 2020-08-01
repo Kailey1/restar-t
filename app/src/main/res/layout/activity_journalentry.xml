@@ -106,7 +106,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="did you meet today's goal?*"
+                android:text="did you meet your goal for today?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
@@ -114,20 +114,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
                 <Button
-                    android:id="@+id/nobtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_lessround"
-                    android:text="no"
-                    style="@style/NormalText"
-                    android:layout_marginLeft="15dp"/>
-                <Button
                     android:id="@+id/yesbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="yes"
                     style="@style/NormalText"
                     android:background="@drawable/border_lessround"
+                    android:layout_marginLeft="15dp"/>
+                <Button
+                    android:id="@+id/nobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_lessround"
+                    android:text="no"
+                    style="@style/NormalText"
                     android:layout_marginLeft="15dp"/>
 
             </LinearLayout>
@@ -154,10 +154,10 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="40dp"
-                android:text="what are you grateful for today?"
+                android:text="anything else on your mind?"
                 style="@style/subheader"/>
             <EditText
-                android:id="@+id/goal_explanation"
+                android:id="@+id/anything_else"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="15dp"
@@ -166,7 +166,7 @@
                 android:textColor="@color/white"
                 android:background="@drawable/drink_spinner"/>
             <Button
-                android:id="@+id/done"
+                android:id="@+id/donebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="save"
