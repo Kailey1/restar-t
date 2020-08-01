@@ -158,7 +158,18 @@
                         android:background="@color/darkblue" />
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="500dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_gravity="left"
+
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkblue"
+                            android:fontFamily="@font/dm_sans_regular"
+                            android:text="The benefits and risks of moderate drinking change over a lifetime. Risks generally exceed benefits until middle age, when cardiovascular disease is an  increasingly large cause of  death."
+                            android:textSize="35px"/>
 
 
                     </LinearLayout>
