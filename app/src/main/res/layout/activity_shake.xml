@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shake"
+    tools:context=".ShakeActivity"
     android:background="@drawable/background"
     android:orientation="vertical">
     <TextView
@@ -52,14 +52,15 @@
                     android:fontFamily="@font/dm_sans_bold"
                     android:textSize="48px"
                     android:background="@drawable/number"/>
-                <EditText
+                <TextView
                     android:id="@+id/reason1"
+                    android:text="reason 1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/drink_spinner"/>
+                    style="@style/NormalText"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,14 +77,14 @@
                     android:fontFamily="@font/dm_sans_bold"
                     android:textSize="48px"
                     android:background="@drawable/number"/>
-                <EditText
+                <TextView
                     android:id="@+id/reason2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/drink_spinner"/>
+                    style="@style/NormalText"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,18 +101,19 @@
                     android:fontFamily="@font/dm_sans_bold"
                     android:textSize="48px"
                     android:background="@drawable/number"/>
-                <EditText
+                <TextView
                     android:id="@+id/reason3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/drink_spinner"/>
+                    style="@style/NormalText"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
     <Button
+        android:id="@+id/talk_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/yellow"
@@ -128,6 +130,7 @@
         android:textColor="@color/darkblue"
         android:layout_gravity="center"/>
     <Button
+        android:id="@+id/journal_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/yellow"

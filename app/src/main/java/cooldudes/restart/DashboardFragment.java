@@ -51,6 +51,7 @@ public class DashboardFragment extends Fragment {
 
                 streakTV.setText(findDiff(u.getStreakStart(), new Date().getTime()) + " days");
                 goalTV.setText(u.getDailyLimit() + " mL");
+
             }
 
             @Override
