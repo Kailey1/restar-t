@@ -1,6 +1,7 @@
 package cooldudes.restart.model;
 
-public class Entry {
+
+public class Entry implements Comparable<Entry>{
 
     private int mood;
     private boolean drank;
@@ -43,5 +44,15 @@ public class Entry {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    @Override
+    public int compareTo(Entry entry) {
+        // returns 0 (same), 1 (puts o higher), -1 (puts this higher)
+        if (date > entry.date){
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

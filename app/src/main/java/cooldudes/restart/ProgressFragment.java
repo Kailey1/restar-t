@@ -1,63 +1,111 @@
 package cooldudes.restart;
 
 import android.os.Bundle;
-
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProgressFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ProgressFragment extends Fragment {
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+import cooldudes.restart.model.ItemAdapter;
+import cooldudes.restart.model.Entry;
 
-    public ProgressFragment() {
-        // Required empty public constructor
-    }
+import static cooldudes.restart.LoginActivity.user;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProgressFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProgressFragment newInstance(String param1, String param2) {
-        ProgressFragment fragment = new ProgressFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
+    private static final String TAG = ProgressFragment.class.getSimpleName();
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+    public RecyclerView recyclerView;
+    private TextView msgView;
+    private View view;
+
+    private List<Entry> entries = new ArrayList<>();
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+    private final int REQUEST_ACCESS_FINE_LOCATION=1;
+    private FusedLocationProviderClient fusedLocationClient;
+    private MainActivity main;
+
+    // Firebase
+    DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
+
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_entry, null);
+
+        main = (MainActivity) getActivity();
+
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this);
+
+        // recycler view set up
+        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(main);
+        recyclerView.setLayoutManager(layoutManager);
+        mAdapter = new ItemAdapter(entries, main);
+        recyclerView.setAdapter(mAdapter);
+
+        getEntry();
+
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_progress, container, false);
+    public void getEntry() {
+        swipeRefreshLayout.setRefreshing(true);
+        // retrieves info from database
+        DatabaseReference entriesRef = fireRef.child("users").child(user.getUid()).child("journal");
+        entriesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // clears the list to fetch new data
+                entries.clear();
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                    Entry m = itemSnapshot.getValue(Entry.class);
+                    ProgressFragment.this.entries.add(m);
+                }
+
+                // sorts missions based on time, status
+                Collections.sort(entries);
+
+                // refreshes recycler view
+                mAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled: " + databaseError);
+            }
+        });
+        swipeRefreshLayout.setRefreshing(false);
     }
+
+    // reloads when refreshed
+    @Override
+    public void onRefresh() {
+        getEntry();
+    }
+
 }
