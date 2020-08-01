@@ -134,7 +134,8 @@ public class ShakeActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         }.start();
     }
