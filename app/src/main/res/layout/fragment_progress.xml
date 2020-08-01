@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProgressFragment">
+    tools:context=".ProgressFragment"
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/yellow"
+        android:fontFamily="@font/lora_bold"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="10dp"
+        android:text="dashboard"
+        android:textSize="64px"
+        android:textColor="@color/darkblue" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        style="@style/NormalText"
+        android:text="YOUR HISTORY"
+        android:textSize="72px"
+        android:layout_marginLeft="50dp"/>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
+                android:src="@drawable/line"
+                android:paddingBottom="50dp"/>
+        </LinearLayout>
+    </ScrollView>
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:fontFamily="@font/dm_sans_medium"
+        android:text="    today's entry"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/add"
+        android:textSize="64px"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/darkblue"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
