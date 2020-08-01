@@ -53,6 +53,7 @@
                         style="@style/subtitle"
                         android:layout_marginLeft="20dp"/>
                     <TextView
+                        android:id="@+id/dayX"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -165,7 +166,7 @@
                 android:textColor="@color/white"
                 android:background="@drawable/drink_spinner"/>
             <Button
-                android:id="@+id/onboarding_done"
+                android:id="@+id/done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="save"

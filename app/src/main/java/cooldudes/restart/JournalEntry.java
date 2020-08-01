@@ -5,22 +5,40 @@ import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.database.collection.LLRBNode;
+
+import cooldudes.restart.model.AppUser;
 
 public class JournalEntry extends AppCompatActivity {
 
     private Button yesBtn, noBtn, doneBtn;
+    private TextView dayX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journalentry);
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
+        String strDate= formatter.format(date);
 
         yesBtn = findViewById(R.id.yesbtn);
         noBtn = findViewById(R.id.nobtn);
+        doneBtn = findViewById(R.id.done);
+        dayX = findViewById(R.id.dayX);
+
+        int days = AppUser.findDiff(, new Date().getTime())
+
+        doneBtn.setText(strDate);
+        //dayX.setText("day " + " of your journey");
+
 
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
