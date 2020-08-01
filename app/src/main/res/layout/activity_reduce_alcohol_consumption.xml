@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,190 +7,144 @@
     android:background="@color/darkblue"
     tools:context=".AlcoholUseActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="50dp">
-
-        <android.support.v7.widget.CardView
+        app:cardBackgroundColor="#67A3CF"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#67A3CF"
-
-            app:cardCornerRadius="30dp">
-
-            <RelativeLayout
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="left"
-                    android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                style="@style/yellowButton"
+                android:orientation="vertical">
 
-                    android:textColor="@color/darkblue"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="Reducing Alcohol Consumption"
-                    android:textSize="64px"
-                    android:textStyle="bold" />
-
-
-
+                    android:text="Reducing Alcohol Consumption:"
+                    android:textColor="@color/darkblue"
+                    android:textSize="80px" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="20dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="easing off an addiction is difficult, here are some other ways to make it easier."
-                    android:textSize="35px"
-                    android:textStyle="bold" />
-
+                    android:text="Easing off an addiction is difficult, here are some other ways to make it easier."
+                    android:textSize="45px"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="120dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/darkblue" />
-
+                    android:layout_margin="30dp"
+                    android:background="@color/darkblue"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="140dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="Mix Weaker drinks"
-                    android:textSize="55px"
-                    android:textStyle="bold" />
+                    android:text="Mix Weaker Drinks"
+                    android:textSize="55px" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="105dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="175dp"
-                    >
-
-
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="150dp"
-                        android:layout_gravity="left"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:layout_marginRight="20dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_regular"
-                        android:text="By mixing weaker drinks, you can drink a lower concentration of alcohol as you progress to sobriety"
-                        android:textSize="35px"
-                        android:textStyle="bold" />
+                        android:text="By mixing weaker drinks, you can drink a lower concentration of alcohol as you progress to sobriety."
+                        android:textSize="45px"/>
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="right"
-                        android:src="@drawable/mix" />
-
-
-                </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="280dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/darkblue" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="left"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="295dp"
-                    android:textColor="@color/darkblue"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:text="Space out Time between drinks"
-                    android:textSize="55px"
-                    android:textStyle="bold" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="355dp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/clock" />
-                    <TextView
-                        android:layout_width="150dp"
-                        android:layout_gravity="left"
                         android:layout_marginLeft="20dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/darkblue"
-                        android:fontFamily="@font/dm_sans_regular"
-                        android:text="Spacing out drinks over a period of time lowers the concentration of alcohol in your body at a given time "
-                        android:textSize="35px"
-                        android:gravity="right"
-                        android:textStyle="bold" />
-
+                        android:src="@drawable/mix" />
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="455dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_margin="30dp"
                     android:background="@color/darkblue" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="left"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="470dp"
-                    android:textColor="@color/darkblue"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:text="Don’t drink your preffered alcoholic drink"
-                    android:textSize="55px"
-                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="535dp">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/clock" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkblue"
+                            android:fontFamily="@font/dm_sans_bold"
+                            android:text="Space out Time between Drinks"
+                            android:textSize="55px"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkblue"
+                            android:fontFamily="@font/dm_sans_regular"
+                            android:text="Spacing out drinks over a period of time lowers the concentration of alcohol in your body at a given time."
+                            android:textSize="45px"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="30dp"
+                    android:background="@color/darkblue" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkblue"
+                    android:fontFamily="@font/dm_sans_bold"
+                    android:text="Don’t drink your Preferred Alcoholic Drink"
+                    android:textSize="55px"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="60dp">
 
                     <TextView
-                        android:layout_gravity="left"
-                        android:layout_width="150dp"
-                        android:layout_marginRight="40dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:textColor="@color/darkblue"
                         android:fontFamily="@font/dm_sans_regular"
-                        android:text="It can help discourage you from overdrinking"
-                        android:textSize="35px"/>
+                        android:text="Drinking something else you do not like as much can discourage you from overdrinking."
+                        android:textSize="45px"/>
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="right"
+                        android:layout_width="80dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="20dp"
                         android:src="@drawable/reducedrink"/>
-
                 </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
 
 
-            </RelativeLayout>
-
-
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</FrameLayout>
