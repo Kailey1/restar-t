@@ -47,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 style="@style/Widget.ProgressBar.Vertical"
-                android:progress="80"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="25dp"
@@ -103,7 +102,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
-                        android:text="3 oz."
                         android:textColor="@color/darkblue"
                         android:textSize="80px" />
                 </LinearLayout>
@@ -141,7 +139,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
-                        android:text="17 days"
                         android:textColor="@color/white"
                         android:textSize="80px" />
                 </LinearLayout>
@@ -170,7 +167,6 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_regular"
                         android:text="T-MINUS"
-
                         android:textColor="@color/white"
                         android:textSize="48px" />
 
@@ -199,16 +195,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="80%"
                     android:textColor="@color/yellow"
                     android:textSize="96px" />
 
                 <TextView
+                    android:id="@+id/motivation_msg"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="almost \nthere!"
                     android:textColor="@color/yellow"
                     android:textSize="48px" />
             </LinearLayout>

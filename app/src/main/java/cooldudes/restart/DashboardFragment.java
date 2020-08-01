@@ -1,6 +1,6 @@
 package cooldudes.restart;
 
-import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +27,8 @@ import static cooldudes.restart.model.AppUser.findDiff;
 
 public class DashboardFragment extends Fragment {
 
-    private TextView goalTV, streakTV, tMinusTV, progressTV;
-    private TextView percent, progressbar;
+    private TextView goalTV, streakTV, tMinusTV, progressTV, motivationTV;
+    private ProgressBar progressBar;
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -44,17 +43,37 @@ public class DashboardFragment extends Fragment {
         streakTV = v.findViewById(R.id.streak);
         tMinusTV = v.findViewById(R.id.tminus);
         progressTV = v.findViewById(R.id.percent);
+        motivationTV = v.findViewById(R.id.motivation_msg);
+        progressBar = v.findViewById(R.id.vertical_progressbar);
 
         fireRef.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 AppUser u = dataSnapshot.getValue(AppUser.class);
 
+                // fills views with info
                 streakTV.setText(findDiff(u.getStreakStart(), new Date().getTime()) + " days");
                 if (u.getDailyLimit()==0){
                     goalTV.setText("stay sober!");
+                } else {
+                    goalTV.setText(u.getDailyLimit() + " drinks");
                 }
-                goalTV.setText(u.getDailyLimit() + " drinks");
+
+                // calculates and fills progress bar
+                int percent = Math.round(100*(float)(u.getStartAmt()-u.getDailyLimit())/u.getStartAmt());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    progressBar.setProgress(percent, true);
+                }
+                progressTV.setText(percent + "%");
+                if (percent < 30){
+                    motivationTV.setText("you\ngot this!");
+                } else if (percent < 60) {
+                    motivationTV.setText("keep\nit up!");
+                } else if (percent < 100) {
+                    motivationTV.setText("almost\nthere!");
+                } else {
+                    motivationTV.setText("blast\noff!");
+                }
 
             }
 

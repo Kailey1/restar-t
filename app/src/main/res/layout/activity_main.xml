@@ -19,8 +19,6 @@
             android:background="@drawable/shadow"/>
     </FrameLayout>
 
-
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="0dp"
@@ -37,19 +35,4 @@
         app:menu="@menu/navigation"
         />
 
-
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/darkblue"
-            android:layout_alignParentBottom="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:itemTextColor="@color/yellow"
-            app:itemIconTint="@color/yellow"
-            app:menu="@menu/navigation"
-            />
-    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
