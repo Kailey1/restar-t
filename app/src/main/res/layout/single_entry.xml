@@ -4,14 +4,14 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/entry_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/darkblue"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="16dp"
+        android:layout_marginLeft="36dp" >
         <ImageView
-            android:layout_width="60px"
-            android:layout_height="60px"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/star"/>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,10 +39,9 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="16dp"
                     style="@style/NormalText"
-                    android:ellipsize="end"
-                    android:maxLines="2"
+                    android:textStyle="italic"
                     android:textSize="48px"
                     android:id="@+id/goal_met"
                     android:visibility="gone"/>
