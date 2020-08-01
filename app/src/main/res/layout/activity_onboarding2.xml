@@ -57,6 +57,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginHorizontal="70dp"
             android:hint="email"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/drink_spinner"/>
@@ -83,6 +84,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="70dp"
             android:hint="email"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/drink_spinner"/>

@@ -72,7 +72,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="how are you feeling?"
+                android:text="how are you feeling?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
@@ -105,7 +105,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="did you meet today's goal?"
+                android:text="did you meet today's goal?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
@@ -130,6 +130,53 @@
                     android:layout_marginLeft="15dp"/>
 
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="40dp"
+                android:text="why do you think you met/didn't meet your goals"
+                style="@style/subheader"/>
+            <EditText
+                android:id="@+id/goal_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/drink_spinner"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="40dp"
+                android:text="what are you grateful for today?"
+                style="@style/subheader"/>
+            <EditText
+                android:id="@+id/goal_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/drink_spinner"/>
+            <Button
+                android:id="@+id/onboarding_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save"
+                android:gravity="left"
+                android:paddingVertical="25dp"
+                android:layout_marginTop="50dp"
+                android:paddingRight="80dp"
+                android:paddingLeft="30dp"
+                android:layout_gravity="right"
+                style="@style/yellowButton"/>
+
         </LinearLayout>
     </ScrollView>
 
