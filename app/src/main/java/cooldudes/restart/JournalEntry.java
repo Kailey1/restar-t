@@ -49,7 +49,7 @@ public class JournalEntry extends AppCompatActivity {
         anythingET = findViewById(R.id.anything_else);
         dayX = findViewById(R.id.dayX);
 
-        int days = AppUser.findDiff(, new Date().getTime())
+        //int days = AppUser.findDiff(, new Date().getTime())
 
         doneBtn.setText(strDate);
 

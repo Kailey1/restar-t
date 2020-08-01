@@ -131,7 +131,6 @@
         android:gravity="center"
         tools:text="5:00"
         style="@style/NormalText"
-
         android:textSize="50px" />
 
 
