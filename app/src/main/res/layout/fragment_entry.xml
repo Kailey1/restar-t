@@ -39,7 +39,7 @@
                     android:paddingLeft="15dp"
                     android:text="Julia really helped me out today, I almost relapsed but..."
                     style="@style/NormalText"
-                    android:textSize="36px"
+                    android:textSize="36px"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
