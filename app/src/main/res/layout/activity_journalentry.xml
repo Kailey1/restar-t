@@ -72,7 +72,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="how are you feeling?"
+                android:text="how are you feeling?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
@@ -105,7 +105,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="did you meet today's goal?"
+                android:text="did you meet today's goal?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
