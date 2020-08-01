@@ -113,7 +113,6 @@
             android:id="@+id/onboarding_sms"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="70dp"
-            android:hint="email"
             android:paddingLeft="10dp"
             android:fontFamily="@font/dm_sans_regular"
             android:textColor="@color/white"
