@@ -24,6 +24,8 @@ public class JournalEntry extends AppCompatActivity {
     private EditText triggersET, anythingET;
     private Entry e;
 
+    private Long entryTime;
+
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -38,7 +40,7 @@ public class JournalEntry extends AppCompatActivity {
         anythingET = findViewById(R.id.anything_else);
 
         Bundle extras = getIntent().getExtras();
-        final String entryTime = extras.getString("ENTRY_TIME");
+        entryTime = extras.getLong("ENTRY_TIME");
 
         // populates the views with what they already filled out previously
         fireRef.child("users").child(user.getUid()).child("journal").addValueEventListener(new ValueEventListener() {
@@ -49,7 +51,7 @@ public class JournalEntry extends AppCompatActivity {
                 int m = e.getMood();
                 triggersET.setText(e.getTriggers());
                 anythingET.setText(e.getAnything());
-                if (e.isDrank()){
+                if (e.isGoalMet()){
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
                     yesBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                     noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
@@ -78,7 +80,7 @@ public class JournalEntry extends AppCompatActivity {
                 noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                 noBtn.setBackgroundResource(R.drawable.border_lessround);
 
-                e.setDrank(true);
+                e.setGoalMet(true);
             }
         });
 
@@ -92,7 +94,7 @@ public class JournalEntry extends AppCompatActivity {
                 yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                 yesBtn.setBackgroundResource(R.drawable.border_lessround);
 
-                e.setDrank(false);
+                e.setGoalMet(false);
             }
         });
 
@@ -105,7 +107,7 @@ public class JournalEntry extends AppCompatActivity {
                 int m = 0;
                 e.setMood(m);
 
-                fireRef.child("users").child(user.getUid()).child("entries").child(entryTime).setValue(e);
+                fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).setValue(e);
 
                 finish();
             }

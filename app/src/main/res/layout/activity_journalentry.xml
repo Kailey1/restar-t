@@ -105,7 +105,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="did you meet today's goal?*"
+                android:text="did you meet your goal for today?*"
                 android:layout_marginLeft="15dp"
                 style="@style/subheader"/>
             <LinearLayout
@@ -113,20 +113,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
                 <Button
-                    android:id="@+id/nobtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_lessround"
-                    android:text="no"
-                    style="@style/NormalText"
-                    android:layout_marginLeft="15dp"/>
-                <Button
                     android:id="@+id/yesbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="yes"
                     style="@style/NormalText"
                     android:background="@drawable/border_lessround"
+                    android:layout_marginLeft="15dp"/>
+                <Button
+                    android:id="@+id/nobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_lessround"
+                    android:text="no"
+                    style="@style/NormalText"
                     android:layout_marginLeft="15dp"/>
 
             </LinearLayout>

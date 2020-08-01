@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
     final static String TAG = MainActivity.class.getSimpleName();
 
-    public static MainActivity m;
-
     // Firebase
     public static DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        m = this;
 
         // sets up nav bar and fragments
         createNotificationChannel();
@@ -62,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         DatabaseReference entryRef = fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(getMidnight()));
         entryRef.setValue(new Entry(getMidnight()));
+
         AlarmReceiver.setReset(this);
 
         startService(new Intent(MainActivity.this,ShakeService.class));

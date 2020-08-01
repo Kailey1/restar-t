@@ -5,14 +5,14 @@ public class Entry implements Comparable<Entry>{
 
 
     private int mood;
-    private boolean drank;
+    private boolean goalMet;
     private String triggers, anything;
-    private long date;
+    private long time;
 
     public Entry(){}
 
     public Entry(long d){
-        this.date = d;
+        this.time = d;
     }
 
     public int getMood() {
@@ -23,12 +23,12 @@ public class Entry implements Comparable<Entry>{
         this.mood = mood;
     }
 
-    public boolean isDrank() {
-        return drank;
+    public boolean isGoalMet() {
+        return goalMet;
     }
 
-    public void setDrank(boolean drank) {
-        this.drank = drank;
+    public void setGoalMet(boolean goalMet) {
+        this.goalMet = goalMet;
     }
 
     public String getTriggers() {
@@ -39,18 +39,18 @@ public class Entry implements Comparable<Entry>{
         this.triggers = triggers;
     }
 
-    public long getDate() {
-        return date;
+    public long getTime() {
+        return time;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setTime(long time) {
+        this.time = time;
     }
 
     @Override
     public int compareTo(Entry entry) {
         // returns 0 (same), 1 (puts o higher), -1 (puts this higher)
-        if (date > entry.date){
+        if (time > entry.time){
             return 1;
         } else {
             return -1;

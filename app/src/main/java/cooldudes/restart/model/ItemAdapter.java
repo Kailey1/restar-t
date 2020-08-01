@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
 import java.util.List;
 
 import cooldudes.restart.MainActivity;
 import cooldudes.restart.R;
+
+import static cooldudes.restart.model.AppUser.findDiff;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     private static final String TAG = ItemAdapter.class.getSimpleName();
@@ -63,7 +66,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         final Entry m = entryList.get(position);
-        holder.date.setText(String.valueOf(m.getDate()));
+        String dateHeader = "DAY " + (findDiff(m.getTime(), new Date().getTime())+1) + " | " + new java.text.SimpleDateFormat("MM/dd/yyyy").format(m.getTime());
+        holder.date.setText(dateHeader);
+
         holder.journal.setText(m.getTriggers());
         int[] aliens = new int[]{R.drawable.wohoo, R.drawable.happy, R.drawable.meh, R.drawable.sad, R.drawable.horrible};
         for (int i=0; i<5; i++) {
