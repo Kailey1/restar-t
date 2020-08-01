@@ -45,7 +45,7 @@
             <LinearLayout
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:background="@color/yellow"
+                android:background="@drawable/yellowback"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
@@ -85,7 +85,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:background="@drawable/border"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
+
                 android:paddingRight="30dp">
                 <ImageView
                     android:layout_width="130px"
@@ -95,6 +96,9 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
@@ -129,12 +133,15 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_regular"
                         android:text="T-MINUS"
+
                         android:textColor="@color/white"
                         android:textSize="48px" />
 
@@ -155,7 +162,7 @@
                 android:layout_marginTop="20dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
-                android:paddingRight="20dp">
+                android:paddingRight="40dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
