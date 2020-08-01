@@ -29,7 +29,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     // Firebase
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
-
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // views in card
         public TextView date, journal, andTv;
