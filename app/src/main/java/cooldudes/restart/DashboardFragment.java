@@ -40,8 +40,8 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //progress bar
-        // Inflate the layout for this fragment
+
+        // views
         View v = inflater.inflate(R.layout.fragment_dashboard, null);
         goalTV = v.findViewById(R.id.daily_goal);
         streakTV = v.findViewById(R.id.streak);
@@ -51,13 +51,12 @@ public class DashboardFragment extends Fragment {
         progressBar = v.findViewById(R.id.vertical_progressbar);
         alienface = v.findViewById(R.id.face);
 
-
         fireRef.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 AppUser u = dataSnapshot.getValue(AppUser.class);
 
-                // fills views with info
+                // fills streak + goal views
                 streakTV.setText(findDiff(u.getStreakStart(), new Date().getTime()) + " days");
                 if (u.getDailyLimit()==0){
                     goalTV.setText("stay sober!");
@@ -65,8 +64,17 @@ public class DashboardFragment extends Fragment {
                     goalTV.setText(u.getDailyLimit() + " drinks");
                 }
 
-                // calculates and fills progress bar
+                // calculates days left assuming they stick to schedule
+                int daysLeft = u.getDailyLimit() / 2;
+                tMinusTV.setText(daysLeft + " days");
+
+                // calculates progress
                 int percent = Math.round(100*(float)(u.getStartAmt()-u.getDailyLimit())/u.getStartAmt());
+                // if they start sober
+                if (u.getStartAmt()==0){
+                    percent = 100;
+                }
+                // displays progress
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     progressBar.setProgress(percent, true);
                 }

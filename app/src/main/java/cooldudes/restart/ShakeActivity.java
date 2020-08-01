@@ -39,7 +39,8 @@ public class ShakeActivity extends AppCompatActivity {
                   @Override
                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                       String phone = dataSnapshot.getValue(String.class);
-                      String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
+//                      String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
+                      String msg = "heyyy, this is an automated text message sent from your secret lover to let you know that I'm madly in love with you (obviously) - hehe text me back ;)";
                       MainActivity.sendText(msg, phone, ShakeActivity.this);
                   }
 
