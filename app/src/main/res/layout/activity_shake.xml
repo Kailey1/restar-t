@@ -28,90 +28,67 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="50dp">
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="50dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="50dp">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/one"/>
+            <TextView
+                android:id="@+id/reason1"
+                android:text="reason 1"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center|center_vertical"
-                    android:gravity="center|center_vertical"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:textSize="48px"
-                    android:background="@drawable/number"/>
-                <TextView
-                    android:id="@+id/reason1"
-                    android:text="reason 1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="20sp"
-                    style="@style/NormalText"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center|center_vertical"
-                    android:gravity="center|center_vertical"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:textSize="48px"
-                    android:background="@drawable/number"/>
-                <TextView
-                    android:id="@+id/reason2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="20sp"
-                    style="@style/NormalText"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center|center_vertical"
-                    android:gravity="center|center_vertical"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:textSize="48px"
-                    android:background="@drawable/number"/>
-                <TextView
-                    android:id="@+id/reason3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="20sp"
-                    style="@style/NormalText"/>
-            </LinearLayout>
+                style="@style/NormalText"/>
         </LinearLayout>
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/two"/>
+            <TextView
+                android:id="@+id/reason2"
+                android:text="reason 2"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/NormalText"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/three"/>
+            <TextView
+                android:id="@+id/reason3"
+                android:text="reason 3"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/NormalText"/>
+        </LinearLayout>
+    </LinearLayout>
     <Button
         android:id="@+id/talk_button"
         android:layout_width="wrap_content"
@@ -147,9 +124,15 @@
         android:textColor="@color/darkblue"
         android:layout_gravity="center"/>
 
+    <TextView
+        android:id="@+id/counttime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/NormalText"
+        android:textSize="50px" />
 
 
-    
 
 
 </LinearLayout>
