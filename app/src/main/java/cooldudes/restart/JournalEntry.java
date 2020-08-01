@@ -51,6 +51,7 @@ public class JournalEntry extends AppCompatActivity {
         dayX = findViewById(R.id.dayX);
         dateText = findViewById(R.id.date);
 
+        //int days = AppUser.findDiff(, new Date().getTime())
 
 
         //dayX.setText(strDate);

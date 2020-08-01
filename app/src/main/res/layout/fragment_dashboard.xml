@@ -39,11 +39,30 @@
         android:layout_marginTop="80dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/wand"
-            android:paddingBottom="50dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ProgressBar
+                android:id="@+id/vertical_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.ProgressBar.Vertical"
+                android:progress="80"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="25dp"
+                android:layout_alignBottom="@+id/wand"
+                android:layout_alignLeft="@+id/wand"
+                android:layout_alignRight="@+id/wand"
+                />
+
+            <ImageView
+                android:id="@+id/wand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wand" />
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
