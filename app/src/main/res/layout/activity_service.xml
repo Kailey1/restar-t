@@ -36,8 +36,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/lora_bold"
-                    android:text="Services and
-Resources"
+                    android:text="Services and\nResources"
                     android:textSize="64px"
                     android:textStyle="bold" />
                 <TextView

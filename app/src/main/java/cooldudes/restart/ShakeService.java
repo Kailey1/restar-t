@@ -94,7 +94,7 @@ public class ShakeService extends Service implements SensorEventListener {
                 if (speed > SHAKE_THRESHOLD) {
                     Toast.makeText(this, "hold on!", Toast.LENGTH_SHORT).show();
 
-                    Intent myIntent= new Intent(this, MainActivity.class);
+                    Intent myIntent= new Intent(this, ShakeActivity.class);
                     myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(myIntent);
                 }
@@ -110,5 +110,7 @@ public class ShakeService extends Service implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
+
 
 }
