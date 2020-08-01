@@ -20,8 +20,6 @@ public class OnboardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding);
 
         nextBTN = findViewById(R.id.onboarding_next);
-
-
         nextBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

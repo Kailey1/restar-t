@@ -155,17 +155,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="other"
+                    android:text="mL of "
+                    style="@style/NormalText"/>
+                <EditText
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/SpinnerTheme" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="% conc."
                     style="@style/NormalText"/>
             </LinearLayout>
-
-
-
-            <EditText
-                android:id="@+id/onboarding_sms"
-                android:hint="email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/onboarding_next"
