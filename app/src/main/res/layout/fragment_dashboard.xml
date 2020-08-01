@@ -4,22 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DashboardFragment"
+
     android:background="@drawable/background"
     android:orientation="vertical">
 
+    <!--tools:context=".DashboardFragment"-->
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:background="@color/yellow"
         android:fontFamily="@font/lora_bold"
         android:paddingLeft="40dp"
         android:paddingTop="10dp"
         android:paddingRight="40dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="15dp"
         android:text="dashboard"
         android:textSize="64px"
         android:textColor="@color/darkblue" />
@@ -66,6 +67,8 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -126,7 +129,8 @@
                 android:orientation="horizontal"
                 android:background="@drawable/border"
                 android:layout_marginTop="20dp"
-                android:paddingRight="30dp">
+                android:padding="20dp"
+                android:paddingRight="20dp">
                 <ImageView
                     android:layout_width="130px"
                     android:layout_height="117px"
@@ -158,11 +162,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:background="@drawable/border"
+                android:background="@drawable/borderyellow"
                 android:layout_marginTop="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingRight="30dp">
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="20dp">
                 <TextView
                     android:id="@+id/percent"
                     android:layout_width="wrap_content"

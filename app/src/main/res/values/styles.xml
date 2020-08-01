@@ -48,5 +48,20 @@
         <item name="android:fontFamily">@font/lora_bold</item>
         <item name="android:layout_margin">50dp</item>
     </style>
+    <style name="subtitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">72px</item>
+        <item name="android:fontFamily">@font/dm_sans_bold</item>
+    </style>
+    <style name="subheader">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">48px</item>
+        <item name="android:fontFamily">@font/dm_sans_bold</item>
+    </style>
+    <style name="mood">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
 
 </resources>

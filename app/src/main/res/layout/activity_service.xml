@@ -34,30 +34,20 @@
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/lora_bold"
-                    android:text="Alcohol Use:"
+                    android:text="Services and
+Resources"
                     android:textSize="64px"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
-                    android:textColor="@color/darkblue"
-                    android:fontFamily="@font/lora_bold"
-                    android:text="weighing the risks and benefits"
-                    android:textSize="45px"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="left"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="80dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="Since the creation of alcohol, society has continued to argue about the risks and benefits for our health, livelihoods, and social gatherings"
+                    android:text="restar-t is best recommended to be used in conjunction with other services. Here are a selection of some services to help with addiction."
                     android:textSize="35px"
                     android:textStyle="bold" />
 
@@ -65,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="200dp"
+                    android:layout_marginTop="170dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/darkblue" />
 
@@ -73,39 +63,88 @@
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="230dp"
+                    android:layout_marginTop="190dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="Risks"
+                    android:text="Alcoholics Anonymous"
                     android:textSize="55px"
                     android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="225dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/web">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="left"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkblue"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="@font/dm_sans_regular"
+                        android:text="https://www.aa.org/"
+                        android:textSize="35px"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="260dp"
+                    android:layout_marginTop="255dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="• Cancer\n• Pancreatitis\n• Sudden death\n• Stroke\n• High blood pressure\n• Heart damage"
+                    android:text="Fellowship of men and women who share their experience, and hope with each other that they may solve their common problem and help others to recover from alcoholism."
                     android:textSize="35px"
                     android:textStyle="bold" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="390dp"
+                    android:layout_marginTop="360dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/darkblue" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="420dp"
+                    android:layout_marginTop="380dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_bold"
-                    android:text="Benefits"
+                    android:text="Kids Help Phone"
                     android:textSize="55px"
                     android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="415dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/phonefacingright">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="left"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkblue"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="@font/dm_sans_regular"
+                        android:text="1-800-668-6868"
+                        android:textSize="35px"
+                        android:textStyle="bold" />
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_gravity="left"
@@ -113,7 +152,7 @@
                     android:layout_marginTop="450dp"
                     android:textColor="@color/darkblue"
                     android:fontFamily="@font/dm_sans_regular"
-                    android:text="• Reducing risk of heart disease\n• Possibly reducing risk of ischemic stroke and diabetes"
+                    android:text="Not everyone who abuses substances is an adult. Kids Help Phone offers a 24 hr service geared specifically towards giving support to youth for substance abuse, and other issues."
                     android:textSize="35px"
                     android:textStyle="bold" />
 

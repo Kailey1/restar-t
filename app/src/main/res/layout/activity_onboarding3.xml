@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/darkblue">
-    <!--tools:context=".OnboardingActivity3"-->
+    <!-- tools:context=".OnboardingActivity3" -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp">
+        android:layout_marginTop="280dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -145,19 +147,16 @@
             android:layout_height="wrap_content"
             android:text="list 3+ reasons why you want to overcome this issue"
             android:layout_marginTop="30dp"
-            android:fontFamily="@font/dm_sans_bold"
             android:layout_marginHorizontal="70dp"
-            android:textSize="48px"
-            android:textColor="@color/white"/>
+            style="@style/subheader"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="200dp"
-
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center">
+        android:layout_marginTop="570dp"
+        android:layout_marginLeft="30dp">
         <Button
             android:id="@+id/more_reasons"
             android:layout_width="match_parent"
@@ -175,8 +174,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="bottom|right">
-        
+        android:layout_marginLeft="280dp"
+        android:layout_marginRight="-50dp"
+        android:layout_marginTop="720dp">
+
         <Button
             android:id="@+id/onboarding_done"
             android:layout_width="wrap_content"
@@ -184,7 +185,6 @@
             android:text="done"
             android:gravity="left"
             android:layout_marginBottom="70dp"
-            android:layout_marginRight="-20dp"
             android:paddingVertical="25dp"
             android:paddingRight="80dp"
             android:paddingLeft="30dp"
