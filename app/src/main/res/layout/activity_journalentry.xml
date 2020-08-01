@@ -165,9 +165,16 @@
                 android:textColor="@color/white"
                 android:background="@drawable/drink_spinner"/>
             <Button
+                android:id="@+id/onboarding_done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="submit"
+                android:text="save"
+                android:gravity="left"
+                android:paddingVertical="25dp"
+                android:layout_marginTop="50dp"
+                android:paddingRight="80dp"
+                android:paddingLeft="30dp"
+                android:layout_gravity="right"
                 style="@style/yellowButton"/>
 
         </LinearLayout>
