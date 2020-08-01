@@ -77,6 +77,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/daily_goal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -110,6 +111,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/streak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -143,6 +145,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/tminus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -161,6 +164,7 @@
                 android:paddingBottom="15dp"
                 android:paddingRight="30dp">
                 <TextView
+                    android:id="@+id/percent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
