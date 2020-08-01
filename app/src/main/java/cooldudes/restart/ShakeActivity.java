@@ -21,7 +21,7 @@ public class ShakeActivity extends AppCompatActivity {
 
     private TextView reason1TV, reason2TV, reason3TV, counttime;
     private String reason1, reason2, reason3;
-    private Button talkBTN, journalBTN;
+    private Button talkBTN, journalBTN, noThankYou;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -56,6 +56,7 @@ public class ShakeActivity extends AppCompatActivity {
         reason3TV = findViewById(R.id.reason3);
         talkBTN = findViewById(R.id.talk_button);
         journalBTN = findViewById(R.id.journal_button);
+        noThankYou = findViewById(R.id.good);
 
         fireRef.child("users").child(user.getUid()).child("reasons").child("1").addValueEventListener(new ValueEventListener() {
                @Override
@@ -110,6 +111,18 @@ public class ShakeActivity extends AppCompatActivity {
                 Intent i = new Intent(ShakeActivity.this, JournalEntry.class);
                 i.putExtra("ENTRY_TIME", AlarmReceiver.getMidnight());
                 startActivity(i);
+            }
+        });
+
+        noThankYou.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                // It will open the activity
+                startActivity(intent);
+                // ... and stop.
             }
         });
 
