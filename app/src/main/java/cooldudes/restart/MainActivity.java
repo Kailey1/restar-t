@@ -21,6 +21,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
     final static String TAG = MainActivity.class.getSimpleName();
+    private ImageButton alienface;
 
     // Firebase
     public static DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        alienface = findViewById(R.id.face);
 
         // sets up nav bar and fragments
         createNotificationChannel();
@@ -55,6 +59,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         navigation.setOnNavigationItemSelectedListener(this);
         final DashboardFragment mission = new DashboardFragment();
         loadFragment(mission);
+
+        alienface.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this, ShakeActivity.class);
+                startActivity(i);
+            }
+        });
 
         AlarmReceiver.setReset(this);
 

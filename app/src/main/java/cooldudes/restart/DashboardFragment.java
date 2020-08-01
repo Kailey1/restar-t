@@ -22,6 +22,7 @@ import java.util.Date;
 
 import cooldudes.restart.model.AppUser;
 
+import static cooldudes.restart.LoginActivity.appUser;
 import static cooldudes.restart.LoginActivity.user;
 import static cooldudes.restart.MainActivity.fireRef;
 import static cooldudes.restart.model.AppUser.findDiff;
@@ -30,6 +31,7 @@ public class DashboardFragment extends Fragment {
 
     private TextView goalTV, streakTV, tMinusTV, progressTV;
     private TextView percent, progressbar;
+    private ImageButton alienface;
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -44,6 +46,7 @@ public class DashboardFragment extends Fragment {
         streakTV = v.findViewById(R.id.streak);
         tMinusTV = v.findViewById(R.id.tminus);
         progressTV = v.findViewById(R.id.percent);
+        alienface = v.findViewById(R.id.face);
 
         fireRef.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,6 +63,8 @@ public class DashboardFragment extends Fragment {
 
             }
         });
+
+
 
         ImageButton logoutBTN = v.findViewById(R.id.logout_button);
         logoutBTN.setOnClickListener(new View.OnClickListener() {
