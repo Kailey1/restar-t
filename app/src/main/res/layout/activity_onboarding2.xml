@@ -65,23 +65,38 @@
             android:layout_height="wrap_content"
             android:background="@drawable/drink_spinner"/>
         -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="If you feel the urge to relapse, this support system allows you to shake your phone to send a text message or call someone you trust for support."
+            android:orientation="horizontal"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+
             android:layout_marginTop="10dp"
-            android:textSize="48px"
-            android:textColor="@color/white"
-            android:fontFamily="@font/dm_sans_regular"/>
+            >
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="if you feel tempted to relapse, shake your phone and we'll contact them for support."
+                android:textSize="48px"
+                android:textColor="@color/white"
+                android:fontFamily="@font/dm_sans_regular"/>
+
+            <ImageView
+                android:layout_width="68dp"
+                android:layout_height="52dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/shakephone" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="add the phone number of \nsomeone you trust"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:textSize="48px"
             android:textColor="@color/white"
             android:fontFamily="@font/dm_sans_bold"/>
@@ -90,7 +105,7 @@
             android:layout_height="wrap_content"
             android:text="e.g. (123) 456 7890"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textSize="36px"
             android:textColor="@color/white"
             android:fontFamily="@font/dm_sans_regular"/>
