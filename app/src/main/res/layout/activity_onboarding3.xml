@@ -69,6 +69,7 @@
                     android:layout_marginRight="40dp"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginTop="20sp"
+                    android:textColor="@color/white"
                     android:background="@drawable/drink_spinner"/>
             </LinearLayout>
             <LinearLayout
