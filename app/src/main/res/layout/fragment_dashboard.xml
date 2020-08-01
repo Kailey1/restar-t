@@ -24,6 +24,14 @@
         android:text="dashboard"
         android:textSize="64px"
         android:textColor="@color/darkblue" />
+
+    <ImageButton
+        android:id="@+id/logout_button"
+        android:background="@drawable/pencil"
+        android:backgroundTint="@color/white"
+        android:layout_width="24dp"
+        android:layout_height="24dp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,6 +80,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/daily_goal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -109,6 +118,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/streak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -146,6 +156,7 @@
                         android:textSize="48px" />
 
                     <TextView
+                        android:id="@+id/tminus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
@@ -164,6 +175,7 @@
                 android:paddingBottom="20dp"
                 android:paddingRight="40dp">
                 <TextView
+                    android:id="@+id/percent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"

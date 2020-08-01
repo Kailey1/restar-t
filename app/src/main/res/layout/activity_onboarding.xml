@@ -42,27 +42,28 @@
                 android:textSize="48px"
                 android:fontFamily="@font/dm_sans_bold"
                 android:textColor="@color/white"/>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp"
                 android:layout_marginLeft="50dp">
-                <Spinner
-                    android:id="@+id/drink1_spinner"
+                <EditText
+                    android:id="@+id/beer_amt"
                     android:paddingLeft="10dp"
-                    android:entries="@array/drink1_array"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
-                    android:theme="@style/SpinnerTheme"/>
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="beer/cider"
+                    android:text="mL of beer/cider"
                     style="@style/NormalText"/>
             </LinearLayout>
 
@@ -72,21 +73,21 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="50dp">
-                <Spinner
-                    android:id="@+id/drink3_spinner"
+                <EditText
+                    android:id="@+id/wine_amt"
                     android:paddingLeft="10dp"
-                    android:entries="@array/drink1_array"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
-                    android:theme="@style/SpinnerTheme"/>
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="wine"
+                    android:text="mL of wine"
                     style="@style/NormalText"/>
             </LinearLayout>
             <LinearLayout
@@ -95,21 +96,21 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="50dp">
-                <Spinner
-                    android:id="@+id/drink4_spinner"
+                <EditText
+                    android:id="@+id/whiskey_amt"
                     android:paddingLeft="10dp"
-                    android:entries="@array/drink1_array"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
-                    android:theme="@style/SpinnerTheme"/>
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="whiskey/gin/rum"
+                    android:text="mL of whiskey/gin/rum"
                     style="@style/NormalText"/>
             </LinearLayout>
             <LinearLayout
@@ -118,21 +119,21 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="50dp">
-                <Spinner
-                    android:id="@+id/drink5_spinner"
+                <EditText
+                    android:id="@+id/liquor_amt"
                     android:paddingLeft="10dp"
-                    android:entries="@array/drink1_array"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
-                    android:theme="@style/SpinnerTheme"/>
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="tequila/vodka"
+                    android:text="mL of tequila/vodka"
                     style="@style/NormalText"/>
             </LinearLayout>
             <LinearLayout
@@ -141,31 +142,39 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="50dp">
-                <Spinner
-                    android:id="@+id/drink6_spinner"
+                <EditText
+                    android:id="@+id/other_amt"
                     android:paddingLeft="10dp"
-                    android:entries="@array/drink1_array"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_regular"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/drink_spinner"
-                    android:theme="@style/SpinnerTheme"/>
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="other"
+                    android:text="mL of "
+                    style="@style/NormalText"/>
+                <EditText
+                    android:id="@+id/other_conc"
+                    android:paddingLeft="10dp"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_regular"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/drink_spinner"
+                    android:inputType="number"
+                    android:theme="@style/inputTheme"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="% conc."
                     style="@style/NormalText"/>
             </LinearLayout>
-
-
-
-            <EditText
-                android:id="@+id/onboarding_sms"
-                android:hint="email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/onboarding_next"

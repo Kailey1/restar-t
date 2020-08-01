@@ -16,11 +16,11 @@ public class AppUser {
         this.streakStart = System.currentTimeMillis();
     }
 
-    // finds how long ago the user joined
-    public int secAgo(){
-        Long diff = new Date().getTime() - startTime;
-        int secDiff = (int) (diff / 1000);
-        return secDiff;
+    // finds time difference
+    public static int findDiff(long start, long end){
+        Long diff =  end-start;
+        int dayDiff = (int) (diff / (1000*3600*24));
+        return dayDiff;
     }
 
     public String getuId() {
