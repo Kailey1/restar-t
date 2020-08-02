@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -42,6 +43,7 @@ import static cooldudes.restart.LoginActivity.user;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
+    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
     final static String TAG = MainActivity.class.getSimpleName();
 
     // Firebase
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMilis, pendingIntent);
 
             // testing to see if notification worked
-            //addNotification("hi","poop");
+            addNotification("restar-t","remember to write an entry");
 
     }
 
@@ -88,19 +90,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
-    // TODO: do we want to send emails automatically?
-    // to send emails
-    public static void sendEmail(String message, String subject, String toAddress, Activity a){
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{toAddress});
-        i.putExtra(Intent.EXTRA_SUBJECT, subject);
-        i.putExtra(Intent.EXTRA_TEXT   , message);
-        try {
-            a.startActivity(Intent.createChooser(i, "Let someone know..."));
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(a, "No email clients installed.", Toast.LENGTH_SHORT).show();
+    // to call someone
+    public static void callContact(String number, Activity a){
+        
+        if (ActivityCompat.checkSelfPermission(a, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(a,
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
+        } else {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + number));
+            a.startActivity(callIntent);
         }
+
     }
 
     private boolean loadFragment(Fragment fragment) {
