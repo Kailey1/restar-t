@@ -93,17 +93,17 @@
         android:id="@+id/talk_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/yellow"
+        android:background="@drawable/yellowback"
         android:fontFamily="@font/dm_sans_medium"
         android:text="    talk to someone. "
         android:textAllCaps="false"
         android:drawableLeft="@drawable/phone"
-        android:textSize="64px"
+        android:textSize="55px"
         android:layout_marginTop="20dp"
         android:paddingLeft="40px"
         android:paddingRight="40px"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
         android:textColor="@color/darkblue"
         android:layout_gravity="center"/>
 
@@ -113,17 +113,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/yellow"
+        android:background="@drawable/whiteback"
         android:drawableLeft="@drawable/pencil"
         android:fontFamily="@font/dm_sans_medium"
-        android:paddingLeft="40px"
-        android:paddingTop="16dp"
-        android:paddingRight="40px"
-        android:paddingBottom="16dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
         android:text="    how do you feel?"
         android:textAllCaps="false"
         android:textColor="@color/darkblue"
-        android:textSize="64px" />
+        android:textSize="55px" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -146,7 +144,8 @@
             android:text="i'm good"
             android:drawableRight="@drawable/check"
             android:drawablePadding="10dp"
-            android:padding="20dp"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="30dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="50dp"
             style="@style/NormalText"/>
