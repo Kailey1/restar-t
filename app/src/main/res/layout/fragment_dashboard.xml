@@ -198,7 +198,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dm_sans_bold"
-                        android:text="31 days"
                         android:textColor="@color/white"
                         android:textSize="80px" />
                 </LinearLayout>

@@ -35,8 +35,8 @@ public class JournalEntry extends AppCompatActivity {
     private ImageView alien1, alien2, alien3, alien4, alien5;
     private Long entryTime;
 
-    int[] aliens = new int[]{R.drawable.horrible, R.drawable.sad, R.drawable.meh, R.drawable.happy, R.drawable.wohoo};
-    int[] aliensFilled = new int[]{R.drawable.horriblefilled, R.drawable.sadfilled, R.drawable.mehfilled, R.drawable.happyfilled,R.drawable.wohoofilled};
+    public static int[] aliens = new int[]{R.drawable.horrible, R.drawable.sad, R.drawable.meh, R.drawable.happy, R.drawable.wohoo};
+    public static int[] aliensFilled = new int[]{R.drawable.horriblefilled, R.drawable.sadfilled, R.drawable.mehfilled, R.drawable.happyfilled,R.drawable.wohoofilled};
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -73,9 +73,9 @@ public class JournalEntry extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 e = dataSnapshot.getValue(Entry.class);
-                // TODO: add alien face
-                int m = e.getMood();
 
+                int m = e.getMood();
+                clickAlien(m);
 
                 triggersET.setText(e.getTriggers());
                 anythingET.setText(e.getAnything());
@@ -91,8 +91,6 @@ public class JournalEntry extends AppCompatActivity {
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                     yesBtn.setBackgroundResource(R.drawable.border_lessround);
                 }
-
-
 
                 alien1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -167,6 +165,7 @@ public class JournalEntry extends AppCompatActivity {
 
                 e.setAnything(anythingET.getText().toString());
                 e.setTriggers(triggersET.getText().toString());
+                e.setFilled(true);
 
                 fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).setValue(e);
 
