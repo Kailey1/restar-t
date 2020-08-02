@@ -1,5 +1,8 @@
 package cooldudes.restart;
 
+import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.os.CountDownTimer;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -15,7 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import cooldudes.restart.model.AppUser;
+
 import static cooldudes.restart.LoginActivity.user;
+import static cooldudes.restart.MainActivity.callContact;
 
 public class ShakeActivity extends AppCompatActivity {
 
@@ -28,6 +34,7 @@ public class ShakeActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private long timeLeftInMiliseconds = 300000; // 5 minutes
     private boolean timerRunning;
+    public ShakeActivity shake;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +42,12 @@ public class ShakeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shake);
         counttime = findViewById(R.id.counttime);
         // sends an automated sms
+
         fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
                   @Override
+
                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                       String phone = dataSnapshot.getValue(String.class);
                       String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
 //                      String msg = "heyyy, this is an automated text message sent from your secret lover to let you know that I'm madly in love with you (obviously) - hehe text me back ;)";
@@ -97,12 +107,45 @@ public class ShakeActivity extends AppCompatActivity {
                                                                                                       }
         );
 
-        talkBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // open link to online help
-            }
-        });
+        talkBTN.setOnClickListener(
+
+            fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                    final AppUser u = dataSnapshot.getValue(AppUser.class);
+                    new AlertDialog.Builder(shake)
+                            .setTitle("Caller selection")
+                            .setMessage("Choose who you'd like to call")
+                            .setPositiveButton("Call Hotline", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    callContact("18773032642", ShakeActivity.this);
+                                }
+                            })
+                            .setNegativeButton("Call Trusted Person", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    callContact(u.getContactSms(), ShakeActivity.this);
+                                }
+                            })
+                            .show();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                )};
+
+
+
 
         journalBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +167,7 @@ public class ShakeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         Timer();
 
