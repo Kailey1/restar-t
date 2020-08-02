@@ -103,7 +103,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="e.g. (123) 456 7890"
+            android:text="e.g. +16139173917"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="20dp"
             android:textSize="36px"
@@ -113,7 +113,6 @@
             android:id="@+id/onboarding_sms"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="70dp"
-            android:hint="email"
             android:paddingLeft="10dp"
             android:fontFamily="@font/dm_sans_regular"
             android:textColor="@color/white"
