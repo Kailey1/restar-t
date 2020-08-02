@@ -23,14 +23,16 @@ public class OnboardingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
+        // views
         beerET = findViewById(R.id.beer_amt);
         wineET = findViewById(R.id.wine_amt);
         whiskeyET = findViewById(R.id.whiskey_amt);
         liquorET = findViewById(R.id.liquor_amt);
         otherET = findViewById(R.id.other_amt);
         concET = findViewById(R.id.other_conc);
-
         nextBTN = findViewById(R.id.onboarding_next);
+
+        // calculates total ABV per day of each drink based on alcohol content
         nextBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

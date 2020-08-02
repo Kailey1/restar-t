@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Date;
 import java.util.List;
 
 import cooldudes.restart.JournalEntry;
@@ -24,14 +23,11 @@ import cooldudes.restart.MainActivity;
 import cooldudes.restart.R;
 
 import static cooldudes.restart.JournalEntry.aliens;
-import static cooldudes.restart.LoginActivity.appUser;
 import static cooldudes.restart.LoginActivity.user;
 import static cooldudes.restart.model.AppUser.findDiff;
 
+// item adapter for journal entries recyclerview
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
-    private static final String TAG = ItemAdapter.class.getSimpleName();
-
-    private static int mPoints;
 
     private List<Entry> entryList;
     public MainActivity main;
@@ -40,12 +36,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // views in card
-        public TextView date, journal, andTv;
+        // views in entry
+        public TextView date, journal;
         public LinearLayout entryLayout;
         public ImageView alien;
 
-        public TextView textView;
         public MyViewHolder(View v) {
             super(v);
             date = v.findViewById(R.id.date);
@@ -65,7 +60,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent,
                                            int viewType) {
-        // create a new card view
+        // create a new entry
         View card = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_entry, parent, false);
         MyViewHolder vh = new MyViewHolder(card);
@@ -92,7 +87,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             }
         });
 
-
+        // if journal entry has been filled out for the day, contents are displayed (otherwise they're invisible)
         if (m.isFilled()){
             holder.journal.setVisibility(View.VISIBLE);
             holder.alien.setVisibility(View.VISIBLE);
@@ -107,6 +102,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             holder.alien.setVisibility(View.GONE);
         }
 
+        // opens up entry in another page when clicked
         holder.entryLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

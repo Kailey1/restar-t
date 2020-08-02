@@ -2,9 +2,9 @@ package cooldudes.restart;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -13,11 +13,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseUserMetadata;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 
@@ -31,9 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     public static FirebaseUser user;
-    public static String famId;
 
-    public String mUsername;
     private static int RC_SIGN_IN = 1;
     private static String ANONYMOUS = null;
 
@@ -81,17 +74,16 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseUserMetadata metadata = user.getMetadata();
         if (Math.abs(metadata.getCreationTimestamp() - metadata.getLastSignInTimestamp()) < 100) {
-
             // creates new user
             appUser = new AppUser(user.getUid());
-
+            // redirects to onboarding screens
             Intent i = new Intent(this, OnboardingActivity.class);
             this.startActivity(i);
             this.finish();
             Toast.makeText(getApplicationContext(), "Signed in as " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
 
         } else {
-            // Existing user
+            // existing user
             Intent i = new Intent(this, MainActivity.class);
             this.startActivity(i);
             this.finish();

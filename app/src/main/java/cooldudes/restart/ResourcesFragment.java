@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class ResourcesFragment extends Fragment {
@@ -33,6 +32,7 @@ public class ResourcesFragment extends Fragment {
         ImageButton mapCard = v.findViewById(R.id.map_card);
         ImageButton groupCard = v.findViewById(R.id.group_card);
 
+        // opens community forum
         groupCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,17 +41,18 @@ public class ResourcesFragment extends Fragment {
             }
         });
 
+        // opens google maps for nearby support groups
         mapCard.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View v) {
-                                         // opens google maps for navigation
-                                         Uri gmmIntentUri = Uri.parse("geo:0,0?q=alcoholics+anonymous");
-                                         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                                         mapIntent.setPackage("com.google.android.apps.maps");
-                                         startActivity(mapIntent);
-                                     }
-                                 });
+             Uri gmmIntentUri = Uri.parse("geo:0,0?q=alcoholics+anonymous");
+             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+             mapIntent.setPackage("com.google.android.apps.maps");
+             startActivity(mapIntent);
+             }
+         });
 
+        // informational cards
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

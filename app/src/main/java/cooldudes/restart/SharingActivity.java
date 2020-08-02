@@ -2,16 +2,12 @@ package cooldudes.restart;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,11 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cooldudes.restart.model.Entry;
 import cooldudes.restart.model.Post;
 import cooldudes.restart.model.PostAdapter;
-
-import static cooldudes.restart.LoginActivity.user;
 
 public class SharingActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -44,7 +37,6 @@ public class SharingActivity extends Activity implements SwipeRefreshLayout.OnRe
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    // Firebase
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -63,7 +55,7 @@ public class SharingActivity extends Activity implements SwipeRefreshLayout.OnRe
         recyclerView.setAdapter(mAdapter);
         newBTN = findViewById(R.id.new_button);
 
-        getEntries();
+        getPosts();
 
         newBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +68,7 @@ public class SharingActivity extends Activity implements SwipeRefreshLayout.OnRe
 
     }
 
-    public void getEntries() {
+    public void getPosts() {
         swipeRefreshLayout.setRefreshing(true);
         // retrieves info from database
         fireRef.child("posts").addValueEventListener(new ValueEventListener() {
@@ -106,7 +98,7 @@ public class SharingActivity extends Activity implements SwipeRefreshLayout.OnRe
     // reloads when refreshed
     @Override
     public void onRefresh() {
-//        getEntries();
+        getPosts();
     }
 
 }

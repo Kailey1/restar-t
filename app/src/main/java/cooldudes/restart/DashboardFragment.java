@@ -98,7 +98,7 @@ public class DashboardFragment extends Fragment {
                     motivationTV.setText("blast\noff!");
                     tminusLayout.setVisibility(View.GONE);
                 }
-
+                // calls their contact
                 callBTN.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -114,20 +114,21 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        logoutBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.signOut(getActivity());
-
-            }
-        });
-
+        // alternate way to open up shake activity
         ImageButton shakeBTN = v.findViewById(R.id.shake_button);
         shakeBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), ShakeActivity.class);
                 startActivity(i);
+            }
+        });
+
+        // signs out user
+        logoutBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.signOut(getActivity());
             }
         });
 

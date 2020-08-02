@@ -35,12 +35,23 @@ public class OnboardingActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding3);
 
+        // views
         doneBTN = findViewById(R.id.onboarding_done);
         reason1ET = findViewById(R.id.reason1);
         reason2ET = findViewById(R.id.reason2);
         reason3ET = findViewById(R.id.reason3);
         backBTN = findViewById(R.id.back_button);
 
+        // closes screen and goes back to previous screen
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(OnboardingActivity3.this, OnboardingActivity.class);
+                startActivity(i);
+            }
+        });
+
+        // collects 3 reasons
         doneBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +75,7 @@ public class OnboardingActivity3 extends AppCompatActivity {
                     return;
                 }
 
+                // stores reasons in database
                 final DatabaseReference userRef = fireRef.child("users").child(user.getUid());
                 userRef.setValue(appUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -78,27 +90,21 @@ public class OnboardingActivity3 extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                // failed to save
+                                // if failed to save
                                 Toast.makeText(getApplicationContext(),"Uh-oh! something went wrong, please try again.",Toast.LENGTH_SHORT).show();
                             }
                         });
 
+                // creates a new journal entry for this day
                 DatabaseReference entryRef = fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(getMidnight()));
                 entryRef.setValue(new Entry(getMidnight()));
 
+                // starts MainActivity and clears current activity stack of onboarding screens
                 Intent i = new Intent(OnboardingActivity3.this, MainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             }
         });
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(OnboardingActivity3.this, OnboardingActivity.class);
-                startActivity(i);
-            }
-        });
     }
 }

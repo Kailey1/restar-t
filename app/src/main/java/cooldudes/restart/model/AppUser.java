@@ -1,10 +1,9 @@
 package cooldudes.restart.model;
 
-import java.util.Date;
-
+// user information stored for the app
 public class AppUser {
 
-    private String uId, contactEmail, contactSms;
+    private String uId, contactSms;
     private int startAmt, dailyLimit;
     private long startTime, streakStart;
 
@@ -29,14 +28,6 @@ public class AppUser {
 
     public void setuId(String uId) {
         this.uId = uId;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
     }
 
     public String getContactSms() {

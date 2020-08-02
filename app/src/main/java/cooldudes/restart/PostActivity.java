@@ -14,7 +14,7 @@ import cooldudes.restart.model.Post;
 public class PostActivity extends AppCompatActivity {
 
     private EditText titleET, contentET;
-    private Button doneBtn;
+    private Button postBTN;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -23,11 +23,13 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
+        // views
         titleET = findViewById(R.id.edit_title);
         contentET = findViewById(R.id.edit_content);
-        doneBtn = findViewById(R.id.post_btn);
+        postBTN = findViewById(R.id.post_btn);
 
-        doneBtn.setOnClickListener(new View.OnClickListener() {
+        // saves the post
+        postBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -44,6 +46,7 @@ public class PostActivity extends AppCompatActivity {
                     contentET.setError( "this field is required!" );
                     return;
                 }
+                // pushes info to firebase
                 String key = fireRef.child("posts").push().getKey();
                 Post p = new Post(key, title, content);
                 fireRef.child("posts").child(key).setValue(p);

@@ -13,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,8 +24,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cooldudes.restart.model.ItemAdapter;
 import cooldudes.restart.model.Entry;
+import cooldudes.restart.model.ItemAdapter;
 
 import static cooldudes.restart.LoginActivity.user;
 
@@ -37,7 +35,6 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     private SwipeRefreshLayout swipeRefreshLayout;
     public RecyclerView recyclerView;
-    private TextView msgView;
     private Button newBTN;
 
 
@@ -45,11 +42,8 @@ public class ProgressFragment extends Fragment implements SwipeRefreshLayout.OnR
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private final int REQUEST_ACCESS_FINE_LOCATION=1;
-    private FusedLocationProviderClient fusedLocationClient;
     private MainActivity main;
 
-    // Firebase
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
     @Nullable

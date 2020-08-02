@@ -8,10 +8,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.Toast;
-
-import cooldudes.restart.MainActivity;
 
 public class ShakeService extends Service implements SensorEventListener {
 

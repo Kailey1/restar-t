@@ -1,22 +1,14 @@
 package cooldudes.restart;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import static cooldudes.restart.LoginActivity.appUser;
-import static cooldudes.restart.LoginActivity.user;
 
 public class OnboardingActivity2 extends AppCompatActivity {
 
@@ -29,12 +21,12 @@ public class OnboardingActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding2);
 
+        // views
         doneBTN = findViewById(R.id.onboarding2_next);
-
         backBTN = findViewById(R.id.back_button);
-
         smsET = findViewById(R.id.onboarding_sms);
 
+        // closes screen and goes to previous screen
         backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +35,7 @@ public class OnboardingActivity2 extends AppCompatActivity {
             }
         });
 
+        // collects sms and moves to next screen
         doneBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

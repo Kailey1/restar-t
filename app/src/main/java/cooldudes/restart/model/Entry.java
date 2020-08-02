@@ -1,6 +1,6 @@
 package cooldudes.restart.model;
 
-
+// journal entry
 public class Entry implements Comparable<Entry>{
 
     private int mood;

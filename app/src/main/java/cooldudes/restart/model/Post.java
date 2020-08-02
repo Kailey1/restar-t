@@ -1,6 +1,6 @@
 package cooldudes.restart.model;
 
-
+// posts to populate the community forum
 public class Post implements Comparable<Post>{
 
     private String title, written, id;

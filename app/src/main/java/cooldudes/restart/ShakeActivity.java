@@ -26,7 +26,6 @@ import static cooldudes.restart.MainActivity.callContact;
 public class ShakeActivity extends AppCompatActivity {
 
     private TextView reason1TV, reason2TV, reason3TV, counttime;
-    private String reason1, reason2, reason3;
     private Button talkBTN, journalBTN, noThankYou;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
@@ -34,7 +33,6 @@ public class ShakeActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private long timeLeftInMiliseconds = 300000; // 5 minutes
     private boolean timerRunning;
-    public ShakeActivity shake;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,6 @@ public class ShakeActivity extends AppCompatActivity {
 
                       String phone = dataSnapshot.getValue(String.class);
                       String msg = "Hey, this is an automated text message sent from 'restart' to let you know that I'm feeling tempted to drink again.";
-//                      String msg = "heyyy, this is an automated text message sent from your secret lover to let you know that I'm madly in love with you (obviously) - hehe text me back ;)";
                       MainActivity.sendText(msg, phone, ShakeActivity.this);
                   }
 
@@ -68,6 +65,7 @@ public class ShakeActivity extends AppCompatActivity {
         journalBTN = findViewById(R.id.journal_button);
         noThankYou = findViewById(R.id.good);
 
+        // retrieves reasons from firebase and populates views
         fireRef.child("users").child(user.getUid()).child("reasons").child("1").addValueEventListener(new ValueEventListener() {
                @Override
                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -82,73 +80,71 @@ public class ShakeActivity extends AppCompatActivity {
         );
 
         fireRef.child("users").child(user.getUid()).child("reasons").child("2").addValueEventListener(new ValueEventListener() {
-                                                                                                          @Override
-                                                                                                          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                                                                              reason2TV.setText(dataSnapshot.getValue(String.class));
-                                                                                                          }
+                  @Override
+                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      reason2TV.setText(dataSnapshot.getValue(String.class));
+                  }
 
-                                                                                                          @Override
-                                                                                                          public void onCancelled(@NonNull DatabaseError databaseError) {
+                  @Override
+                  public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                                                                                                          }
-                                                                                                      }
+                  }
+              }
         );
 
         fireRef.child("users").child(user.getUid()).child("reasons").child("3").addValueEventListener(new ValueEventListener() {
-                                                                                                          @Override
-                                                                                                          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                                                                              reason3TV.setText(dataSnapshot.getValue(String.class));
-                                                                                                          }
+                  @Override
+                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      reason3TV.setText(dataSnapshot.getValue(String.class));
+                  }
 
-                                                                                                          @Override
-                                                                                                          public void onCancelled(@NonNull DatabaseError databaseError) {
+                  @Override
+                  public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                                                                                                          }
-                                                                                                      }
+                  }
+              }
         );
 
+        // opens alert dialog to call a hotline or a trusted person
         talkBTN.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View v) {
-                                           fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
-                                               @Override
+               fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
+                   @Override
 
-                                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                                                   final String number = dataSnapshot.getValue(String.class);
-                                                   new AlertDialog.Builder(ShakeActivity.this)
-                                                           .setTitle("Caller selection")
-                                                           .setMessage("Choose who you'd like to call")
-                                                           .setPositiveButton("Call Hotline", new DialogInterface.OnClickListener() {
+                       final String number = dataSnapshot.getValue(String.class);
+                       new AlertDialog.Builder(ShakeActivity.this)
+                               .setTitle("Caller selection")
+                               .setMessage("Choose who you'd like to call")
+                               .setPositiveButton("Call Hotline", new DialogInterface.OnClickListener() {
 
-                                                               @Override
-                                                               public void onClick(DialogInterface dialogInterface, int i) {
-                                                                   callContact("18773032642", ShakeActivity.this);
-                                                               }
-                                                           })
-                                                           .setNegativeButton("Call Trusted Person", new DialogInterface.OnClickListener() {
-
-                                                               @Override
-                                                               public void onClick(DialogInterface dialogInterface, int i) {
-
-                                                                   callContact(number, ShakeActivity.this);
-                                                               }
-                                                           })
-                                                           .show();
-
-                                               }
-
-                                               @Override
-                                               public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                               }
-                                           });
-                                       }
+                                   @Override
+                                   public void onClick(DialogInterface dialogInterface, int i) {
+                                       callContact("18773032642", ShakeActivity.this);
                                    }
-                );
+                               })
+                               .setNegativeButton("Call Trusted Person", new DialogInterface.OnClickListener() {
 
+                                   @Override
+                                   public void onClick(DialogInterface dialogInterface, int i) {
 
+                                       callContact(number, ShakeActivity.this);
+                                   }
+                               })
+                               .show();
+
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                   }
+               });
+           }
+       });
 
 
         journalBTN.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +157,7 @@ public class ShakeActivity extends AppCompatActivity {
             }
         });
 
+        // brings user back to MainActivity
         noThankYou.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -172,10 +169,10 @@ public class ShakeActivity extends AppCompatActivity {
             }
         });
 
-
         Timer();
 
     }
+
     public void Timer() {
         if (timerRunning){
             stopTimer();
@@ -184,6 +181,7 @@ public class ShakeActivity extends AppCompatActivity {
             startTimer();
         }
     }
+
     public void  startTimer() {
         countDownTimer = new CountDownTimer(timeLeftInMiliseconds, 1000) {
             @Override
@@ -200,6 +198,7 @@ public class ShakeActivity extends AppCompatActivity {
             }
         }.start();
     }
+
     public void stopTimer() {
         countDownTimer.cancel();
         timerRunning = false;
