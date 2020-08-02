@@ -35,32 +35,6 @@ public class OnboardingActivity2 extends AppCompatActivity {
 
         smsET = findViewById(R.id.onboarding_sms);
 
-        //my failed attempt at error validation rip
-        /*
-        if( smsET.getText().toString().length() == 12 ){
-            Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
-            startActivity(i);
-        }
-        else{
-            Toast.makeText(OnboardingActivity2.this, "!", Toast.LENGTH_SHORT).show();
-            smsET.setError( "First name is required!" );
-            return;
-        }
-        *
-         */
-
-
-        doneBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                appUser.setContactSms(String.valueOf(smsET.getText()));
-
-                Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
-                startActivity(i);
-            }
-        });
-
         backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,5 +42,23 @@ public class OnboardingActivity2 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        doneBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // validation check
+                if(smsET.getText().toString().length() == 12 && smsET.getText().toString().charAt(0)=='+'){
+                    appUser.setContactSms(String.valueOf(smsET.getText()));
+                    Intent i = new Intent(OnboardingActivity2.this, OnboardingActivity3.class);
+                    startActivity(i);
+                }
+                else{
+                    smsET.setError( "invalid phone number, make sure to use the format above!" );
+                    return;
+                }
+            }
+        });
+
+
     }
 }

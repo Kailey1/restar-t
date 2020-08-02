@@ -65,6 +65,9 @@ public class JournalEntry extends AppCompatActivity {
         String strDate = new java.text.SimpleDateFormat("MMMM dd yyyy").format(entryTime);
         dateText.setText(strDate);
 
+        // TODO: change day system  here
+
+
         long dayNum = (findDiff(entryTime, new Date().getTime())+1);
         dayX.setText("day " + dayNum + " of your journey");
 

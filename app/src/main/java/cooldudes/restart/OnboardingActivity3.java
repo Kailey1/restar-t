@@ -26,6 +26,7 @@ public class OnboardingActivity3 extends AppCompatActivity {
     private Button doneBTN;
     private ImageButton backBTN;
     private EditText reason1ET, reason2ET, reason3ET;
+    private String reason1, reason2, reason3;
 
     DatabaseReference fireRef = FirebaseDatabase.getInstance().getReference();
 
@@ -44,13 +45,32 @@ public class OnboardingActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(!reason1ET.getText().toString().isEmpty()){
+                    reason1 = reason1ET.getText().toString();
+                } else{
+                    reason1ET.setError( "this field is required!" );
+                    return;
+                }
+                if(!reason2ET.getText().toString().isEmpty()){
+                    reason1 = reason2ET.getText().toString();
+                } else{
+                    reason2ET.setError( "this field is required!" );
+                    return;
+                }
+                if(!reason3ET.getText().toString().isEmpty()){
+                    reason1 = reason3ET.getText().toString();
+                } else{
+                    reason3ET.setError( "this field is required!" );
+                    return;
+                }
+
                 final DatabaseReference userRef = fireRef.child("users").child(user.getUid());
                 userRef.setValue(appUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        userRef.child("reasons").child("1").setValue(String.valueOf(reason1ET.getText()));
-                        userRef.child("reasons").child("2").setValue(String.valueOf(reason2ET.getText()));
-                        userRef.child("reasons").child("3").setValue(String.valueOf(reason3ET.getText()));
+                        userRef.child("reasons").child("1").setValue(reason1);
+                        userRef.child("reasons").child("2").setValue(reason2);
+                        userRef.child("reasons").child("3").setValue(reason3);
                         Toast.makeText(getApplicationContext(),"Welcome to your chance to restart!",Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -69,7 +89,6 @@ public class OnboardingActivity3 extends AppCompatActivity {
                 Intent i = new Intent(OnboardingActivity3.this, MainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
-                finish();
             }
         });
 

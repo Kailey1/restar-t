@@ -14,6 +14,7 @@ public class Entry implements Comparable<Entry>{
         this.time = d;
         this.goalMet = true;
         this.filled = false;
+        this.mood = 2;
     }
 
     public int getMood() {
