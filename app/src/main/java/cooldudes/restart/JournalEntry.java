@@ -82,12 +82,12 @@ public class JournalEntry extends AppCompatActivity {
 
                 if (e.isGoalMet()){
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
-                    yesBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
+                    yesBtn.setBackgroundResource(R.drawable.whiteback);
                     noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                     noBtn.setBackgroundResource(R.drawable.border_lessround);
                 } else {
                     noBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.darkblue));
-                    noBtn.setBackgroundColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
+                    noBtn.setBackgroundResource(R.drawable.whiteback);
                     yesBtn.setTextColor(ContextCompat.getColor(JournalEntry.this, R.color.white));
                     yesBtn.setBackgroundResource(R.drawable.border_lessround);
                 }
