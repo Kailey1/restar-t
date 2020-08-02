@@ -120,9 +120,8 @@ public class ShakeActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                // It will open the activity
                 startActivity(intent);
-                // ... and stop.
+                finish();
             }
         });
 
@@ -149,6 +148,7 @@ public class ShakeActivity extends AppCompatActivity {
             public void onFinish() {
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
+                finish();
             }
         }.start();
     }

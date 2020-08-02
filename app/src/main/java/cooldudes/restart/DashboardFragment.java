@@ -1,16 +1,21 @@
 package cooldudes.restart;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -24,6 +29,7 @@ import cooldudes.restart.model.AppUser;
 
 import static cooldudes.restart.LoginActivity.appUser;
 import static cooldudes.restart.LoginActivity.user;
+import static cooldudes.restart.MainActivity.callContact;
 import static cooldudes.restart.MainActivity.fireRef;
 import static cooldudes.restart.model.AppUser.findDiff;
 
@@ -31,7 +37,8 @@ public class DashboardFragment extends Fragment {
 
     private TextView goalTV, streakTV, tMinusTV, progressTV, motivationTV;
     private ProgressBar progressBar;
-    private ImageButton alienface;
+    private ImageButton alienface, callBTN;
+    private LinearLayout tminusLayout;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -50,11 +57,13 @@ public class DashboardFragment extends Fragment {
         motivationTV = v.findViewById(R.id.motivation_msg);
         progressBar = v.findViewById(R.id.vertical_progressbar);
         alienface = v.findViewById(R.id.face);
+        callBTN = v.findViewById(R.id.callsomeone);
+        tminusLayout = v.findViewById(R.id.tminus_layout);
 
         fireRef.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                AppUser u = dataSnapshot.getValue(AppUser.class);
+                final AppUser u = dataSnapshot.getValue(AppUser.class);
 
                 // fills streak + goal views
                 streakTV.setText(findDiff(u.getStreakStart(), new Date().getTime()) + " days");
@@ -78,6 +87,8 @@ public class DashboardFragment extends Fragment {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     progressBar.setProgress(percent, true);
                 }
+                // sets t-minus visible if they're not sober yet
+                tminusLayout.setVisibility(View.VISIBLE);
                 progressTV.setText(percent + "%");
                 if (percent < 30){
                     motivationTV.setText("you\ngot this!");
@@ -87,7 +98,15 @@ public class DashboardFragment extends Fragment {
                     motivationTV.setText("almost\nthere!");
                 } else {
                     motivationTV.setText("blast\noff!");
+                    tminusLayout.setVisibility(View.GONE);
                 }
+
+                callBTN.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        callContact(u.getContactSms(), getActivity());
+                    }
+                });
 
             }
 
@@ -96,8 +115,6 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-
-
 
         alienface.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +132,7 @@ public class DashboardFragment extends Fragment {
                 LoginActivity.signOut(getActivity());
             }
         });
+
         return v;
     }
 

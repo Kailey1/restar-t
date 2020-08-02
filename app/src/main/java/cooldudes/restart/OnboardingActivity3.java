@@ -67,6 +67,7 @@ public class OnboardingActivity3 extends AppCompatActivity {
                 entryRef.setValue(new Entry(getMidnight()));
 
                 Intent i = new Intent(OnboardingActivity3.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 finish();
             }
