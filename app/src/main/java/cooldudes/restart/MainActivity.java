@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         startService(new Intent(MainActivity.this,ShakeService.class));
 
             // testing to see if notification worked
-            //addNotification("hi","poop");
+            addNotification("restar-t","remember to write an entry");
 
     }
 
