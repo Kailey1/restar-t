@@ -52,13 +52,13 @@ public class OnboardingActivity3 extends AppCompatActivity {
                     return;
                 }
                 if(!reason2ET.getText().toString().isEmpty()){
-                    reason1 = reason2ET.getText().toString();
+                    reason2 = reason2ET.getText().toString();
                 } else{
                     reason2ET.setError( "this field is required!" );
                     return;
                 }
                 if(!reason3ET.getText().toString().isEmpty()){
-                    reason1 = reason3ET.getText().toString();
+                    reason3 = reason3ET.getText().toString();
                 } else{
                     reason3ET.setError( "this field is required!" );
                     return;

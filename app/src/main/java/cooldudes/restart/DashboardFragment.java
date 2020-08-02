@@ -1,15 +1,11 @@
 package cooldudes.restart;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +23,6 @@ import java.util.Date;
 
 import cooldudes.restart.model.AppUser;
 
-import static cooldudes.restart.LoginActivity.appUser;
 import static cooldudes.restart.LoginActivity.user;
 import static cooldudes.restart.MainActivity.callContact;
 import static cooldudes.restart.MainActivity.fireRef;
@@ -37,7 +32,7 @@ public class DashboardFragment extends Fragment {
 
     private TextView goalTV, streakTV, tMinusTV, progressTV, motivationTV;
     private ProgressBar progressBar;
-    private ImageButton alienface, callBTN;
+    private ImageButton logoutBTN, callBTN;
     private LinearLayout tminusLayout;
 
     public DashboardFragment() {
@@ -56,7 +51,7 @@ public class DashboardFragment extends Fragment {
         progressTV = v.findViewById(R.id.percent);
         motivationTV = v.findViewById(R.id.motivation_msg);
         progressBar = v.findViewById(R.id.vertical_progressbar);
-        alienface = v.findViewById(R.id.face);
+        logoutBTN = v.findViewById(R.id.logout);
         callBTN = v.findViewById(R.id.callsomeone);
         tminusLayout = v.findViewById(R.id.tminus_layout);
 
@@ -78,7 +73,7 @@ public class DashboardFragment extends Fragment {
                 tMinusTV.setText(daysLeft + " days");
 
                 // calculates progress
-                int percent = Math.round(100*(float)(u.getStartAmt()-u.getDailyLimit())/u.getStartAmt());
+                int percent = Math.round(100*(float)(u.getStartAmt()-(u.getDailyLimit()+2))/u.getStartAmt());
                 // if they start sober
                 if (u.getStartAmt()==0){
                     percent = 100;
@@ -116,20 +111,20 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        alienface.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(getActivity(), ShakeActivity.class);
-                startActivity(i);
-            }
-        });
-
-        ImageButton logoutBTN = v.findViewById(R.id.logout_button);
         logoutBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LoginActivity.signOut(getActivity());
+
+            }
+        });
+
+        ImageButton shakeBTN = v.findViewById(R.id.shake_button);
+        shakeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ShakeActivity.class);
+                startActivity(i);
             }
         });
 

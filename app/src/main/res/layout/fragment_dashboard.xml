@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:background="@drawable/background"
-    android:orientation="vertical">
+    android:background="@drawable/background">
 
-    <!--tools:context=".DashboardFragment"-->
-    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="200dp">
+
+
+        <ImageView
+            android:id="@+id/wand"
+            android:layout_width="50dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:src="@drawable/wand" />
+
+        <ProgressBar
+            android:id="@+id/vertical_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/Widget.ProgressBar.Vertical"
+            android:paddingLeft="20dp"
+            android:animationResolution ="10000"
+            android:paddingRight="20dp"
+            android:paddingTop="25dp"
+            android:layout_alignBottom="@+id/wand"
+            android:layout_alignLeft="@+id/wand"
+            android:layout_alignRight="@+id/wand"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
         android:layout_width="220dp"
@@ -31,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:paddingVertical="20dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginRight="-20dp"
         android:background="@drawable/whiteback">
 
@@ -48,7 +81,7 @@
             android:layout_height="30dp"
             android:background="@color/darkblue"/>
         <ImageButton
-            android:id="@+id/logout_button"
+            android:id="@+id/shake_button"
             android:background="@drawable/shakeblue"
             android:layout_marginLeft="30dp"
             android:layout_width="33dp"
@@ -60,7 +93,7 @@
             android:layout_height="30dp"
             android:background="@color/darkblue"/>
         <ImageButton
-            android:id="@+id/face"
+            android:id="@+id/logout"
             android:layout_marginLeft="30dp"
             android:layout_gravity="right"
             android:layout_width="30dp"
@@ -74,30 +107,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="30dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ProgressBar
-                android:id="@+id/vertical_progressbar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                style="@style/Widget.ProgressBar.Vertical"
-                android:paddingLeft="20dp"
-                android:animationResolution ="10000"
-                android:paddingRight="20dp"
-                android:paddingTop="25dp"
-                android:layout_alignBottom="@+id/wand"
-                android:layout_alignLeft="@+id/wand"
-                android:layout_alignRight="@+id/wand"
-                />
+        android:layout_marginLeft="75dp">
 
-            <ImageView
-                android:id="@+id/wand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/wand" />
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -243,4 +254,6 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
