@@ -1,30 +1,14 @@
 package cooldudes.restart;
 
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import cooldudes.restart.model.Entry;
-
-import static cooldudes.restart.LoginActivity.user;
-import static cooldudes.restart.model.AppUser.findDiff;
-
-import cooldudes.restart.model.AppUser;
 import cooldudes.restart.model.Post;
 
 public class PostActivity extends AppCompatActivity {
@@ -46,8 +30,22 @@ public class PostActivity extends AppCompatActivity {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String title, content;
+                if(!titleET.getText().toString().isEmpty()){
+                    title = titleET.getText().toString();
+                } else{
+                    titleET.setError( "this field is required!" );
+                    return;
+                }
+                if(!contentET.getText().toString().isEmpty()){
+                    content = contentET.getText().toString();
+                } else{
+                    contentET.setError( "this field is required!" );
+                    return;
+                }
                 String key = fireRef.child("posts").push().getKey();
-                Post p = new Post(key, titleET.getText().toString(), contentET.getText().toString());
+                Post p = new Post(key, title, content);
                 fireRef.child("posts").child(key).setValue(p);
                 finish();
             }

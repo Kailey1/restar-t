@@ -85,7 +85,7 @@
         android:id="@+id/post_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="save"
+        android:text="post"
         android:gravity="left"
         android:paddingVertical="25dp"
         android:layout_marginBottom="48dp"

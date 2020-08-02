@@ -65,17 +65,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         startService(new Intent(MainActivity.this,ShakeService.class));
 
-        Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent,0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        long timeAtButtonClick = System.currentTimeMillis();
-        long tenSecondsInMilis = 1000 * 30;
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMilis, pendingIntent);
-
-//            // testing to see if notification worked
-//            addNotification("restar-t","remember to write an entry");
-
     }
 
     // to send texts

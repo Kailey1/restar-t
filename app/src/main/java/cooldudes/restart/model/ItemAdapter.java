@@ -107,7 +107,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             holder.alien.setVisibility(View.GONE);
         }
 
-        // TODO - change to make linearlayout onclick?
         holder.entryLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

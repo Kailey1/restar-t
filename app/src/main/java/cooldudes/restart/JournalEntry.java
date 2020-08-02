@@ -45,8 +45,6 @@ public class JournalEntry extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journalentry);
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
-
         yesBtn = findViewById(R.id.yesbtn);
         noBtn = findViewById(R.id.nobtn);
         doneBtn = findViewById(R.id.donebtn);
@@ -62,14 +60,22 @@ public class JournalEntry extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         entryTime = extras.getLong("ENTRY_TIME");
-        String strDate = new java.text.SimpleDateFormat("MMMM dd yyyy").format(entryTime);
+        String strDate = new java.text.SimpleDateFormat("MMMM d, yyyy").format(entryTime);
         dateText.setText(strDate);
 
-        // TODO: change day system  here
+        fireRef.child("users").child(user.getUid()).child("startTime").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                long start = (long) dataSnapshot.getValue();
+                String dateHeader = "day " + (findDiff(start, entryTime)+1) + " of your journey";
+                dayX.setText(dateHeader);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        long dayNum = (findDiff(entryTime, new Date().getTime())+1);
-        dayX.setText("day " + dayNum + " of your journey");
+            }
+        });
 
         // populates the views with what they already filled out previously
         fireRef.child("users").child(user.getUid()).child("journal").child(String.valueOf(entryTime)).addValueEventListener(new ValueEventListener() {
