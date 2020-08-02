@@ -107,42 +107,46 @@ public class ShakeActivity extends AppCompatActivity {
                                                                                                       }
         );
 
-        talkBTN.setOnClickListener(
+        talkBTN.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
+                                               @Override
 
-            fireRef.child("users").child(user.getUid()).child("contactSms").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                    final AppUser u = dataSnapshot.getValue(AppUser.class);
-                    new AlertDialog.Builder(shake)
-                            .setTitle("Caller selection")
-                            .setMessage("Choose who you'd like to call")
-                            .setPositiveButton("Call Hotline", new DialogInterface.OnClickListener() {
+                                                   final String number = dataSnapshot.getValue(String.class);
+                                                   new AlertDialog.Builder(ShakeActivity.this)
+                                                           .setTitle("Caller selection")
+                                                           .setMessage("Choose who you'd like to call")
+                                                           .setPositiveButton("Call Hotline", new DialogInterface.OnClickListener() {
 
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    callContact("18773032642", ShakeActivity.this);
-                                }
-                            })
-                            .setNegativeButton("Call Trusted Person", new DialogInterface.OnClickListener() {
+                                                               @Override
+                                                               public void onClick(DialogInterface dialogInterface, int i) {
+                                                                   callContact("18773032642", ShakeActivity.this);
+                                                               }
+                                                           })
+                                                           .setNegativeButton("Call Trusted Person", new DialogInterface.OnClickListener() {
 
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                               @Override
+                                                               public void onClick(DialogInterface dialogInterface, int i) {
 
-                                    callContact(u.getContactSms(), ShakeActivity.this);
-                                }
-                            })
-                            .show();
+                                                                   callContact(number, ShakeActivity.this);
+                                                               }
+                                                           })
+                                                           .show();
 
-                }
+                                               }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                               @Override
+                                               public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                )};
+                                               }
+                                           });
+                                       }
+                                   }
+                );
 
 
 
