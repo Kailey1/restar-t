@@ -102,8 +102,8 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="40px"
         android:paddingRight="40px"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:textColor="@color/darkblue"
         android:layout_gravity="center"/>
 
@@ -117,9 +117,9 @@
         android:drawableLeft="@drawable/pencil"
         android:fontFamily="@font/dm_sans_medium"
         android:paddingLeft="40px"
-        android:paddingTop="10dp"
+        android:paddingTop="16dp"
         android:paddingRight="40px"
-        android:paddingBottom="10dp"
+        android:paddingBottom="16dp"
         android:text="    how do you feel?"
         android:textAllCaps="false"
         android:textColor="@color/darkblue"

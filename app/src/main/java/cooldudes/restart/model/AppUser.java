@@ -70,4 +70,12 @@ public class AppUser {
     public void setStreakStart(long streakStart) {
         this.streakStart = streakStart;
     }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 }
