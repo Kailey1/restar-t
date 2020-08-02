@@ -29,29 +29,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
+        android:paddingVertical="20dp"
         android:layout_marginLeft="120dp"
-        android:orientation="horizontal">
+        android:layout_marginRight="-20dp"
+        android:background="@drawable/whiteback">
 
         <ImageButton
             android:id="@+id/callsomeone"
-            android:background="@drawable/call"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
-
+            android:background="@drawable/callblue"
+            android:layout_marginLeft="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <View
+            android:layout_width="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_height="30dp"
+            android:background="@color/darkblue"/>
         <ImageButton
             android:id="@+id/logout_button"
-            android:background="@drawable/signout"
+            android:background="@drawable/shakeblue"
             android:layout_marginLeft="30dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
+            android:layout_width="33dp"
+            android:layout_height="33dp" />
+        <View
+            android:layout_width="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_height="30dp"
+            android:background="@color/darkblue"/>
         <ImageButton
             android:id="@+id/face"
             android:layout_marginLeft="30dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
             android:layout_gravity="right"
-            android:background="@drawable/shake"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/signoutblue"/>
     </LinearLayout>
 
     <LinearLayout
@@ -89,8 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginLeft="25dp">
             <LinearLayout
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
