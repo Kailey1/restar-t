@@ -2,6 +2,7 @@ package cooldudes.restart;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -64,8 +65,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         startService(new Intent(MainActivity.this,ShakeService.class));
 
+        Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent,0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+        long tenSecondsInMilis = 1000 * 10;
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMilis, pendingIntent);
+
             // testing to see if notification worked
-            //addNotification("hi","poop");
+            addNotification("restar-t","remember to write an entry");
 
     }
 
