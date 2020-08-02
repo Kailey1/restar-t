@@ -73,7 +73,10 @@ public class DashboardFragment extends Fragment {
                 tMinusTV.setText(daysLeft + " days");
 
                 // calculates progress
-                int percent = Math.round(100*(float)(u.getStartAmt()-(u.getDailyLimit()+2))/u.getStartAmt());
+                int percent = 0;
+                if (u.getDailyLimit()<16){
+                    percent = Math.round(100*(float)(u.getStartAmt()-u.getDailyLimit()+2)/u.getStartAmt());
+                }
                 // if they start sober
                 if (u.getStartAmt()==0){
                     percent = 100;

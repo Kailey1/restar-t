@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         long timeAtButtonClick = System.currentTimeMillis();
-        long tenSecondsInMilis = 1000 * 10;
+        long tenSecondsInMilis = 1000 * 30;
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMilis, pendingIntent);
 
-            // testing to see if notification worked
-            addNotification("restar-t","remember to write an entry");
+//            // testing to see if notification worked
+//            addNotification("restar-t","remember to write an entry");
 
     }
 
