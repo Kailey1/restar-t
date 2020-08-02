@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/entry_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_marginLeft="36dp" >
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/star"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/NormalText"
+                android:fontFamily="@font/dm_sans_bold"
+                android:paddingBottom="10dp"
+                android:id="@+id/post_title"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                style="@style/NormalText"
+                android:paddingBottom="10dp"
+                android:textSize="48px"
+                android:id="@+id/post_content"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                style="@style/NormalText"
+                android:textStyle="italic"
+                android:textSize="36px"
+                android:paddingBottom="24dp"
+                android:id="@+id/post_date"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

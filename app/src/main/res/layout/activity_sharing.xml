@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SharingActivity"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/yellow"
+        android:fontFamily="@font/lora_bold"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="15dp"
+        android:text="community"
+        android:textSize="64px"
+        android:textColor="@color/darkblue" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        style="@style/NormalText"
+        android:text="RECENT POSTS"
+        android:textSize="72px"
+        android:layout_marginLeft="50dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="150dp">
+
+        <ImageView
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="68dp"
+            android:paddingTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_posts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/posts_recycler_view"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fadingEdge="horizontal"
+                    android:fadingEdgeLength="50dp"
+                    android:fillViewport="false"
+                    android:requiresFadingEdge="vertical">
+
+                </android.support.v7.widget.RecyclerView>
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/new_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yellowback"
+        android:fontFamily="@font/dm_sans_medium"
+        android:text="new post"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/add"
+        android:textSize="64px"
+        android:layout_marginBottom="48dp"
+        android:paddingVertical="20dp"
+        android:layout_marginHorizontal="60dp"
+        android:paddingHorizontal="30dp"
+        android:textColor="@color/darkblue"
+        android:layout_gravity="center|bottom"/>
+
+</FrameLayout>

@@ -36,7 +36,8 @@ public class ResourcesFragment extends Fragment {
         groupCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent i = new Intent(getActivity(), SharingActivity.class);
+                startActivity(i);
             }
         });
 
