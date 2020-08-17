@@ -1,4 +1,4 @@
-# restart
+# restar-t
 
 Restar-t is an Android app that makes the path to alcohol recovery more accessible and affordable, by providing individuals manageable alcohol consumption goals to slowly taper off their dependency.
 
